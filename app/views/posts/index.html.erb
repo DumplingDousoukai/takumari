@@ -1,0 +1,21 @@
+<div class="main posts-index">
+  <div class="container">
+    <% @posts.each do |post| %>
+      <div class="posts-index-item">
+        <div class="post-left">
+          <% if current_user.persisted? && current_user.avatar? %>
+            <%= image_tag current_user.avatar.to_s %>
+          <% else %>
+            <%= image_tag '/homeparty_logo.jpg' %>
+          <% end %>
+        </div>
+        <div class="post-right">
+          <div class="post-user-name">
+            <%= link_to(post.user.name, "/users/#{post.user.id}") %>
+          </div>
+          <%= link_to(post.content, "/posts/#{post.id}") %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

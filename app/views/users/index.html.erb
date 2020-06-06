@@ -1,0 +1,29 @@
+<% if user_signed_in? %>
+  <div class="main users-index">
+    <div class="container">
+      <p><%= link_to "マイページへ", user_path(current_user) %></p>
+      <h1 class="users-heading">ユーザー一覧画面</h1>
+      <% User.all.where.not(id: current_user.id).each do |user| %>
+        <div class="users-index-item">
+          <div class="user-left">
+            <% if current_user.persisted? && current_user.avatar? %>
+              <%= image_tag current_user.avatar.to_s %>
+            <% else %>
+              <%= image_tag '/homeparty_logo.jpg' %>
+            <% end %>
+            <li><%= "#{user.name}" %></li>
+            <li><%= "#{user.email}" %></li>
+          </div>
+          <div class="user-right">
+            <% if current_user.following?(user) %>
+              <%= link_to 'フォローを外す', unfollow_path(user.id), method: :POST %>
+            <% else %>
+              <%= link_to 'フォロー', follow_path(user.id), method: :POST %>
+            <% end %>
+            <%= link_to "show", user_path(user) %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>

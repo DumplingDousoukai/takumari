@@ -1,0 +1,24 @@
+<div class="main users-index">
+  <div class="container">
+<p>検索</p>
+<%= form_tag("/users/search", {method: 'get'}) do %>
+  <%= text_field_tag :search %>
+  <%= submit_tag 'Search', :name => nil %>
+<% end %>
+
+<ul>
+  <% @users.each do |user| %>
+    <div class="user-left">
+      <% if current_user.persisted? && current_user.avatar? %>
+        <%= image_tag current_user.avatar.to_s %>
+      <% else %>
+        <%= image_tag '/homeparty_logo.jpg' %>
+      <% end %>
+      <li><%= "#{user.name}" %></li>
+      <li><%= "#{user.email}" %></li>
+    </div>
+  <% end %>
+</ul>
+
+  </div>
+</div>
