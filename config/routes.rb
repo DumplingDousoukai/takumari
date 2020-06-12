@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
 
-  mount ActionCable.server => '/cable'
 
-  resources :rooms, only: [:show, :create]
+  get "rooms/show" => "rooms#show"
+
+  mount ActionCable.server => '/cable'
 
   post "likes/:post_id/create" => "likes#create"
   post "likes/:post_id/destroy" => "likes#destroy"
