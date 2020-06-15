@@ -12065,3 +12065,1860 @@ RoomChannel is transmitting the subscription confirmation
 RoomChannel is streaming from room_channel
 Finished "/cable/" [WebSocket] for ::1 at 2020-06-12 16:04:55 +0900
 RoomChannel stopped streaming from room_channel
+Finished "/cable/" [WebSocket] for ::1 at 2020-06-12 17:05:30 +0900
+RoomChannel stopped streaming from room_channel
+Started GET "/cable" for ::1 at 2020-06-12 17:05:32 +0900
+Started GET "/cable/" [WebSocket] for ::1 at 2020-06-12 17:05:32 +0900
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room_channel
+Finished "/cable/" [WebSocket] for ::1 at 2020-06-13 03:15:14 +0900
+RoomChannel stopped streaming from room_channel
+Started GET "/cable" for ::1 at 2020-06-13 03:15:15 +0900
+Started GET "/cable/" [WebSocket] for ::1 at 2020-06-13 03:15:15 +0900
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room_channel
+Finished "/cable/" [WebSocket] for ::1 at 2020-06-13 03:34:59 +0900
+RoomChannel stopped streaming from room_channel
+Started GET "/cable" for ::1 at 2020-06-13 03:35:00 +0900
+Started GET "/cable/" [WebSocket] for ::1 at 2020-06-13 03:35:00 +0900
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room_channel
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+Migrating to AddUserIdToMessages (20200612184100)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (1.5ms)[0m  [1m[35mALTER TABLE "messages" ADD "user_id" integer[0m
+  ↳ db/migrate/20200612184100_add_user_id_to_messages.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200612184100"]]
+  ↳ bin/rails:4
+  [1m[35m (4.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+Migrating to CreateRooms (20200612184338)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20200612184338_create_rooms.rb:3
+  [1m[35m (5.3ms)[0m  [1m[35mCREATE TABLE "rooms" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20200612184338_create_rooms.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200612184338"]]
+  ↳ bin/rails:4
+  [1m[35m (5.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+Migrating to CreateUserRooms (20200612184542)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+Migrating to CreateUserRooms (20200612184542)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20200612184542_create_user_rooms.rb:3
+  [1m[35m (4.9ms)[0m  [1m[35mCREATE TABLE "user_rooms" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "room_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_3ee87d0014"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  ↳ db/migrate/20200612184542_create_user_rooms.rb:3
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE  INDEX "index_user_rooms_on_user_id" ON "user_rooms" ("user_id")[0m
+  ↳ db/migrate/20200612184542_create_user_rooms.rb:3
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE  INDEX "index_user_rooms_on_room_id" ON "user_rooms" ("room_id")[0m
+  ↳ db/migrate/20200612184542_create_user_rooms.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200612184542"]]
+  ↳ bin/rails:4
+  [1m[35m (27.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+Started GET "/cable" for ::1 at 2020-06-13 04:15:39 +0900
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+Started GET "/cable/" [WebSocket] for ::1 at 2020-06-13 04:15:40 +0900
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room_channel
+Finished "/cable/" [WebSocket] for ::1 at 2020-06-13 04:15:41 +0900
+RoomChannel stopped streaming from room_channel
+Started GET "/rooms/show" for ::1 at 2020-06-13 04:15:41 +0900
+Processing by RoomsController#show as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+Completed 404 Not Found in 71ms (ActiveRecord: 1.6ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Room without an ID):
+  
+app/controllers/rooms_controller.rb:11:in `show'
+Started GET "/rooms/top" for ::1 at 2020-06-13 04:15:51 +0900
+Processing by RoomsController#top as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+Completed 500 Internal Server Error in 222ms (ActiveRecord: 0.3ms)
+
+
+  
+ActiveRecord::HasManyThroughSourceAssociationNotFoundError (Could not find the source association(s) "room" or :rooms in model UserRoom. Try 'has_many :rooms, :through => :user_rooms, :source => <name>'. Is it one of user?):
+  
+app/controllers/rooms_controller.rb:5:in `top'
+Started GET "/rooms/top" for ::1 at 2020-06-13 04:34:27 +0900
+Processing by RoomsController#top as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+Completed 500 Internal Server Error in 25ms (ActiveRecord: 1.8ms)
+
+
+  
+ActiveRecord::HasManyThroughSourceAssociationNotFoundError (Could not find the source association(s) "room" or :rooms in model UserRoom. Try 'has_many :rooms, :through => :user_rooms, :source => <name>'. Is it one of user?):
+  
+app/controllers/rooms_controller.rb:5:in `top'
+Started GET "/rooms/top" for ::1 at 2020-06-13 04:34:29 +0900
+Processing by RoomsController#top as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.3ms)
+
+
+  
+ActiveRecord::HasManyThroughSourceAssociationNotFoundError (Could not find the source association(s) "room" or :rooms in model UserRoom. Try 'has_many :rooms, :through => :user_rooms, :source => <name>'. Is it one of user?):
+  
+app/controllers/rooms_controller.rb:5:in `top'
+  [1m[36mMessage Load (3.5ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mMessage Load (0.2ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMessage Destroy (4.4ms)[0m  [1m[31mDELETE FROM "messages" WHERE "messages"."id" = ?[0m  [["id", 1]]
+  [1m[35m (17.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mMessage Load (0.2ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMessage Destroy (4.5ms)[0m  [1m[31mDELETE FROM "messages" WHERE "messages"."id" = ?[0m  [["id", 2]]
+  [1m[35m (15.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mMessage Load (0.3ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMessage Destroy (4.4ms)[0m  [1m[31mDELETE FROM "messages" WHERE "messages"."id" = ?[0m  [["id", 3]]
+  [1m[35m (17.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mMessage Load (0.2ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMessage Destroy (4.4ms)[0m  [1m[31mDELETE FROM "messages" WHERE "messages"."id" = ?[0m  [["id", 4]]
+  [1m[35m (14.8ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/rooms/top" for ::1 at 2020-06-13 04:44:24 +0900
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+Processing by RoomsController#top as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+Completed 500 Internal Server Error in 92ms (ActiveRecord: 1.9ms)
+
+
+  
+ActiveRecord::HasManyThroughSourceAssociationNotFoundError (Could not find the source association(s) "room" or :rooms in model UserRoom. Try 'has_many :rooms, :through => :user_rooms, :source => <name>'. Is it one of user?):
+  
+app/controllers/rooms_controller.rb:5:in `top'
+Started GET "/rooms/top" for ::1 at 2020-06-13 04:49:11 +0900
+Processing by RoomsController#top as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+Completed 500 Internal Server Error in 26ms (ActiveRecord: 1.7ms)
+
+
+  
+NoMethodError (undefined method `room' for #<User:0x000000000926a648>
+Did you mean?  rooms):
+  
+app/controllers/rooms_controller.rb:5:in `top'
+Started GET "/rooms/top" for ::1 at 2020-06-13 05:08:59 +0900
+Processing by RoomsController#top as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 1.6ms)
+
+
+  
+ActiveRecord::HasManyThroughSourceAssociationNotFoundError (Could not find the source association(s) "room" or :rooms in model UserRoom. Try 'has_many :rooms, :through => :user_rooms, :source => <name>'. Is it one of user?):
+  
+app/controllers/rooms_controller.rb:5:in `top'
+Started GET "/rooms/top" for ::1 at 2020-06-13 05:10:50 +0900
+Processing by RoomsController#top as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 2.2ms)
+
+
+  
+ActiveRecord::HasManyThroughSourceAssociationNotFoundError (Could not find the source association(s) "room" or :rooms in model UserRoom. Try 'has_many :rooms, :through => :user_rooms, :source => <name>'. Is it one of user?):
+  
+app/controllers/rooms_controller.rb:5:in `top'
+Started GET "/rooms/top" for ::1 at 2020-06-13 05:10:53 +0900
+Processing by RoomsController#top as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.2ms)
+
+
+  
+ActiveRecord::HasManyThroughSourceAssociationNotFoundError (Could not find the source association(s) "room" or :rooms in model UserRoom. Try 'has_many :rooms, :through => :user_rooms, :source => <name>'. Is it one of user?):
+  
+app/controllers/rooms_controller.rb:5:in `top'
+Started GET "/rooms/top" for ::1 at 2020-06-13 05:10:54 +0900
+Processing by RoomsController#top as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.2ms)
+
+
+  
+ActiveRecord::HasManyThroughSourceAssociationNotFoundError (Could not find the source association(s) "room" or :rooms in model UserRoom. Try 'has_many :rooms, :through => :user_rooms, :source => <name>'. Is it one of user?):
+  
+app/controllers/rooms_controller.rb:5:in `top'
+Started GET "/rooms/top" for ::1 at 2020-06-13 05:10:54 +0900
+Processing by RoomsController#top as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.2ms)
+
+
+  
+ActiveRecord::HasManyThroughSourceAssociationNotFoundError (Could not find the source association(s) "room" or :rooms in model UserRoom. Try 'has_many :rooms, :through => :user_rooms, :source => <name>'. Is it one of user?):
+  
+app/controllers/rooms_controller.rb:5:in `top'
+Started GET "/rooms/top" for ::1 at 2020-06-13 05:10:55 +0900
+Processing by RoomsController#top as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.3ms)
+
+
+  
+ActiveRecord::HasManyThroughSourceAssociationNotFoundError (Could not find the source association(s) "room" or :rooms in model UserRoom. Try 'has_many :rooms, :through => :user_rooms, :source => <name>'. Is it one of user?):
+  
+app/controllers/rooms_controller.rb:5:in `top'
+Started GET "/rooms/show" for ::1 at 2020-06-13 05:10:55 +0900
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"show"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:11
+Completed 404 Not Found in 7ms (ActiveRecord: 0.5ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Room with 'id'=show):
+  
+app/controllers/rooms_controller.rb:11:in `show'
+Started GET "/rooms/top" for ::1 at 2020-06-13 05:11:01 +0900
+Processing by RoomsController#top as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.6ms)
+
+
+  
+ActiveRecord::HasManyThroughSourceAssociationNotFoundError (Could not find the source association(s) "room" or :rooms in model UserRoom. Try 'has_many :rooms, :through => :user_rooms, :source => <name>'. Is it one of user?):
+  
+app/controllers/rooms_controller.rb:5:in `top'
+Started GET "/rooms/show" for ::1 at 2020-06-13 05:14:14 +0900
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"show"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:11
+Completed 404 Not Found in 9ms (ActiveRecord: 0.3ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Room with 'id'=show):
+  
+app/controllers/rooms_controller.rb:11:in `show'
+Started GET "/" for 127.0.0.1 at 2020-06-15 17:33:44 +0900
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#top as HTML
+Completed 401 Unauthorized in 48ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2020-06-15 17:33:45 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (224.4ms)
+Completed 200 OK in 4028ms (Views: 3988.0ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2020-06-15 17:33:50 +0900
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2020-06-15 17:33:51 +0900
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Could not execute command from ({"command"=>"subscribe", "identifier"=>"{\"channel\":\"RoomChannel\"}"}) [SyntaxError - C:/Users/y0113/takumari/app/channels/room_channel.rb:11: syntax error, unexpected tLABEL, expecting ')'
+    Message.create! (content: data['message'][0], user_id:...
+                     ^~~~~~~~
+C:/Users/y0113/takumari/app/channels/room_channel.rb:11: syntax error, unexpected tLABEL, expecting '='
+...t: data['message'][0], user_id: data['message'][1].to_i, roo...
+...                       ^~~~~~~~
+C:/Users/y0113/takumari/app/channels/room_channel.rb:11: syntax error, unexpected tLABEL, expecting '='
+...ta['message'][1].to_i, room_id: data['message'][2].to_i)
+...                       ^~~~~~~~
+C:/Users/y0113/takumari/app/channels/room_channel.rb:11: syntax error, unexpected ')', expecting end
+...om_id: data['message'][2].to_i)
+...                              ^]: C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/dependencies.rb:476:in `load' | C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/dependencies.rb:476:in `block in load_file' | C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/dependencies.rb:661:in `new_constants_in' | C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/dependencies.rb:475:in `load_file' | C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/dependencies.rb:373:in `block in require_or_load'
+Started POST "/users/sign_in" for 127.0.0.1 at 2020-06-15 17:34:00 +0900
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"MpSHaH4t5+8EliqKAY6fJFIFW03UNL7tPwqAtb5oVDfFsqTv/sGwkXlQGnUtA5gHz0Klmp6hcwoxfsEfPEw02g==", "user"=>{"name"=>"yuya", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"ログイン"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["name", "yuya"], ["LIMIT", 1]]
+  ↳ C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+Redirected to http://localhost:3000/
+Completed 302 Found in 627ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2020-06-15 17:34:01 +0900
+Processing by HomeController#top as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+  Rendering home/top.html.erb within layouts/application
+  Rendered home/top.html.erb within layouts/application (0.5ms)
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:31
+Completed 200 OK in 245ms (Views: 187.7ms | ActiveRecord: 4.1ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2020-06-15 17:34:01 +0900
+Started GET "/cable" for 127.0.0.1 at 2020-06-15 17:34:01 +0900
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2020-06-15 17:34:01 +0900
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Could not execute command from ({"command"=>"subscribe", "identifier"=>"{\"channel\":\"RoomChannel\"}"}) [SyntaxError - C:/Users/y0113/takumari/app/channels/room_channel.rb:11: syntax error, unexpected tLABEL, expecting ')'
+    Message.create! (content: data['message'][0], user_id:...
+                     ^~~~~~~~
+C:/Users/y0113/takumari/app/channels/room_channel.rb:11: syntax error, unexpected tLABEL, expecting '='
+...t: data['message'][0], user_id: data['message'][1].to_i, roo...
+...                       ^~~~~~~~
+C:/Users/y0113/takumari/app/channels/room_channel.rb:11: syntax error, unexpected tLABEL, expecting '='
+...ta['message'][1].to_i, room_id: data['message'][2].to_i)
+...                       ^~~~~~~~
+C:/Users/y0113/takumari/app/channels/room_channel.rb:11: syntax error, unexpected ')', expecting end
+...om_id: data['message'][2].to_i)
+...                              ^]: C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/dependencies.rb:476:in `load' | C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/dependencies.rb:476:in `block in load_file' | C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/dependencies.rb:661:in `new_constants_in' | C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/dependencies.rb:475:in `load_file' | C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/dependencies.rb:373:in `block in require_or_load'
+Started GET "/rooms/top" for 127.0.0.1 at 2020-06-15 17:34:13 +0900
+Processing by RoomsController#top as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+Completed 500 Internal Server Error in 254ms (ActiveRecord: 1.8ms)
+
+
+  
+ActiveRecord::HasManyThroughSourceAssociationNotFoundError (Could not find the source association(s) "room" or :rooms in model UserRoom. Try 'has_many :rooms, :through => :user_rooms, :source => <name>'. Is it one of user?):
+  
+app/controllers/rooms_controller.rb:5:in `top'
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2020-06-15 17:34:15 +0900
+Started GET "/rooms/top" for ::1 at 2020-06-15 18:17:29 +0900
+Processing by RoomsController#top as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "user_rooms"."id" FROM "user_rooms" WHERE "user_rooms"."user_id" != ?[0m  [["user_id", 1]]
+  ↳ app/controllers/rooms_controller.rb:6
+  Rendering rooms/top.html.erb within layouts/application
+  [1m[36mRoom Load (0.5ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" INNER JOIN "user_rooms" ON "rooms"."id" = "user_rooms"."room_id" WHERE "user_rooms"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/rooms/top.html.erb:10
+  [1m[36mRoom Load (0.4ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE 1=0[0m
+  ↳ app/views/rooms/top.html.erb:15
+  Rendered rooms/top.html.erb within layouts/application (169.0ms)
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:31
+Completed 200 OK in 693ms (Views: 551.7ms | ActiveRecord: 8.8ms)
+
+
+Started GET "/cable" for ::1 at 2020-06-15 18:17:32 +0900
+Started GET "/cable/" [WebSocket] for ::1 at 2020-06-15 18:17:32 +0900
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Could not execute command from ({"command"=>"subscribe", "identifier"=>"{\"channel\":\"RoomChannel\"}"}) [SyntaxError - C:/Users/y0113/takumari/app/channels/room_channel.rb:11: syntax error, unexpected tLABEL, expecting ')'
+    Message.create! (content: data['message'][0], user_id:...
+                     ^~~~~~~~
+C:/Users/y0113/takumari/app/channels/room_channel.rb:11: syntax error, unexpected tLABEL, expecting '='
+...t: data['message'][0], user_id: data['message'][1].to_i, roo...
+...                       ^~~~~~~~
+C:/Users/y0113/takumari/app/channels/room_channel.rb:11: syntax error, unexpected tLABEL, expecting '='
+...ta['message'][1].to_i, room_id: data['message'][2].to_i)
+...                       ^~~~~~~~
+C:/Users/y0113/takumari/app/channels/room_channel.rb:11: syntax error, unexpected ')', expecting end
+...om_id: data['message'][2].to_i)
+...                              ^]: C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/dependencies.rb:476:in `load' | C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/dependencies.rb:476:in `block in load_file' | C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/dependencies.rb:661:in `new_constants_in' | C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/dependencies.rb:475:in `load_file' | C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/dependencies.rb:373:in `block in require_or_load'
+Finished "/cable/" [WebSocket] for ::1 at 2020-06-15 18:19:07 +0900
+Started GET "/rooms/top" for ::1 at 2020-06-15 18:19:07 +0900
+Processing by RoomsController#top as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "user_rooms"."id" FROM "user_rooms" WHERE "user_rooms"."user_id" != ?[0m  [["user_id", 1]]
+  ↳ app/controllers/rooms_controller.rb:6
+  Rendering rooms/top.html.erb within layouts/application
+  [1m[36mRoom Load (0.5ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" INNER JOIN "user_rooms" ON "rooms"."id" = "user_rooms"."room_id" WHERE "user_rooms"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/rooms/top.html.erb:10
+  [1m[36mRoom Load (0.6ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE 1=0[0m
+  ↳ app/views/rooms/top.html.erb:15
+  Rendered rooms/top.html.erb within layouts/application (21.8ms)
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:31
+Completed 200 OK in 174ms (Views: 148.8ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/cable" for ::1 at 2020-06-15 18:19:09 +0900
+Started GET "/cable/" [WebSocket] for ::1 at 2020-06-15 18:19:09 +0900
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Could not execute command from ({"command"=>"subscribe", "identifier"=>"{\"channel\":\"RoomChannel\"}"}) [SyntaxError - C:/Users/y0113/takumari/app/channels/room_channel.rb:11: syntax error, unexpected tLABEL, expecting ')'
+    Message.create! (content: data['message'][0], user_id:...
+                     ^~~~~~~~
+C:/Users/y0113/takumari/app/channels/room_channel.rb:11: syntax error, unexpected tLABEL, expecting '='
+...t: data['message'][0], user_id: data['message'][1].to_i, roo...
+...                       ^~~~~~~~
+C:/Users/y0113/takumari/app/channels/room_channel.rb:11: syntax error, unexpected tLABEL, expecting '='
+...ta['message'][1].to_i, room_id: data['message'][2].to_i)
+...                       ^~~~~~~~
+C:/Users/y0113/takumari/app/channels/room_channel.rb:11: syntax error, unexpected ')', expecting end
+...om_id: data['message'][2].to_i)
+...                              ^]: C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/dependencies.rb:476:in `load' | C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/dependencies.rb:476:in `block in load_file' | C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/dependencies.rb:661:in `new_constants_in' | C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/dependencies.rb:475:in `load_file' | C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/dependencies.rb:373:in `block in require_or_load'
+Started GET "/rooms/show" for ::1 at 2020-06-15 18:19:11 +0900
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"show"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+  [1m[36mRoom Load (0.5ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:11
+Completed 404 Not Found in 15ms (ActiveRecord: 0.9ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Room with 'id'=show):
+  
+app/controllers/rooms_controller.rb:11:in `show'
+Started GET "/rooms/top" for ::1 at 2020-06-15 18:22:56 +0900
+Processing by RoomsController#top as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "user_rooms"."id" FROM "user_rooms" WHERE "user_rooms"."user_id" != ?[0m  [["user_id", 1]]
+  ↳ app/controllers/rooms_controller.rb:6
+  Rendering rooms/top.html.erb within layouts/application
+  [1m[36mRoom Load (0.5ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" INNER JOIN "user_rooms" ON "rooms"."id" = "user_rooms"."room_id" WHERE "user_rooms"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/rooms/top.html.erb:12
+  [1m[36mRoom Load (0.4ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE 1=0[0m
+  ↳ app/views/rooms/top.html.erb:17
+  Rendered rooms/top.html.erb within layouts/application (41.7ms)
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:31
+Completed 200 OK in 215ms (Views: 194.6ms | ActiveRecord: 2.3ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2020-06-15 18:22:56 +0900
+Started GET "/cable" for ::1 at 2020-06-15 18:22:56 +0900
+Started GET "/cable/" [WebSocket] for ::1 at 2020-06-15 18:22:56 +0900
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Could not execute command from ({"command"=>"subscribe", "identifier"=>"{\"channel\":\"RoomChannel\"}"}) [SyntaxError - C:/Users/y0113/takumari/app/channels/room_channel.rb:11: syntax error, unexpected tLABEL, expecting ')'
+    Message.create! (content: data['message'][0], user_id:...
+                     ^~~~~~~~
+C:/Users/y0113/takumari/app/channels/room_channel.rb:11: syntax error, unexpected tLABEL, expecting '='
+...t: data['message'][0], user_id: data['message'][1].to_i, roo...
+...                       ^~~~~~~~
+C:/Users/y0113/takumari/app/channels/room_channel.rb:11: syntax error, unexpected tLABEL, expecting '='
+...ta['message'][1].to_i, room_id: data['message'][2].to_i)
+...                       ^~~~~~~~
+C:/Users/y0113/takumari/app/channels/room_channel.rb:11: syntax error, unexpected ')', expecting end
+...om_id: data['message'][2].to_i)
+...                              ^]: C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/dependencies.rb:476:in `load' | C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/dependencies.rb:476:in `block in load_file' | C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/dependencies.rb:661:in `new_constants_in' | C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/dependencies.rb:475:in `load_file' | C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/dependencies.rb:373:in `block in require_or_load'
+Started POST "/rooms" for ::1 at 2020-06-15 18:23:00 +0900
+Processing by RoomsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+y0DpzZ9NB+daoVHooCRvG+qk1E19P6a2yOOFNyrci8xXxLwDPE83G3H581aKNCwwX0as06AHxOXq59AJHUS4A==", "room"=>{"name"=>"宅まり"}, "commit"=>"Create Room"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/rooms_controller.rb:17
+  [1m[36mRoom Create (2.0ms)[0m  [1m[32mINSERT INTO "rooms" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "宅まり"], ["created_at", "2020-06-15 09:23:01.104155"], ["updated_at", "2020-06-15 09:23:01.104155"]]
+  ↳ app/controllers/rooms_controller.rb:17
+  [1m[35m (33.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/rooms_controller.rb:17
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18
+  [1m[36mRoom Load (0.4ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18
+  [1m[36mUserRoom Create (2.0ms)[0m  [1m[32mINSERT INTO "user_rooms" ("user_id", "room_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 1], ["room_id", 1], ["created_at", "2020-06-15 09:23:01.257970"], ["updated_at", "2020-06-15 09:23:01.257970"]]
+  ↳ app/controllers/rooms_controller.rb:18
+  [1m[35m (6.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/rooms_controller.rb:18
+Redirected to http://localhost:3000/rooms/1
+Completed 200 OK in 205ms (ActiveRecord: 45.9ms)
+
+
+Started GET "/rooms/1" for ::1 at 2020-06-15 18:23:01 +0900
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:11
+  Rendering rooms/show.html.erb within layouts/application
+  Rendered rooms/show.html.erb within layouts/application (1.7ms)
+Completed 500 Internal Server Error in 105ms (ActiveRecord: 0.7ms)
+
+
+  
+SyntaxError (C:/Users/y0113/takumari/app/views/rooms/show.html.erb:4: syntax error, unexpected tIDENTIFIER, expecting ')'
+...d=( render @messages collection: @messages );@output_buffer....
+...                     ^~~~~~~~~~):
+  
+app/views/rooms/show.html.erb:4: syntax error, unexpected tIDENTIFIER, expecting ')'
+Finished "/cable/" [WebSocket] for ::1 at 2020-06-15 18:32:31 +0900
+Started GET "/rooms/1" for ::1 at 2020-06-15 18:32:31 +0900
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+  [1m[36mRoom Load (0.6ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:11
+  Rendering rooms/show.html.erb within layouts/application
+  Rendered rooms/show.html.erb within layouts/application (1.0ms)
+Completed 500 Internal Server Error in 40ms (ActiveRecord: 1.1ms)
+
+
+  
+SyntaxError (C:/Users/y0113/takumari/app/views/rooms/show.html.erb:4: syntax error, unexpected tIDENTIFIER, expecting ')'
+...d=( render @messages collection: @messages );@output_buffer....
+...                     ^~~~~~~~~~):
+  
+app/views/rooms/show.html.erb:4: syntax error, unexpected tIDENTIFIER, expecting ')'
+Started GET "/rooms/1" for ::1 at 2020-06-15 18:32:35 +0900
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:11
+  Rendering rooms/show.html.erb within layouts/application
+  Rendered rooms/show.html.erb within layouts/application (1.7ms)
+Completed 500 Internal Server Error in 54ms (ActiveRecord: 0.7ms)
+
+
+  
+SyntaxError (C:/Users/y0113/takumari/app/views/rooms/show.html.erb:4: syntax error, unexpected tIDENTIFIER, expecting ')'
+...d=( render @messages collection: @messages );@output_buffer....
+...                     ^~~~~~~~~~):
+  
+app/views/rooms/show.html.erb:4: syntax error, unexpected tIDENTIFIER, expecting ')'
+Started GET "/rooms/1" for ::1 at 2020-06-15 18:33:27 +0900
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+  [1m[36mRoom Load (0.4ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:11
+  Rendering rooms/show.html.erb within layouts/application
+  Rendered rooms/show.html.erb within layouts/application (14.0ms)
+Completed 500 Internal Server Error in 44ms (ActiveRecord: 0.8ms)
+
+
+  
+ActionView::Template::Error (Missing partial rooms/_messages, application/_messages with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :slim, :coffee, :jbuilder]}. Searched in:
+  * "C:/Users/y0113/takumari/app/views"
+  * "C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/kaminari-core-1.2.0/app/views"
+  * "C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/devise-4.7.1/app/views"
+):
+    1: <p><%= "ルーム名：#{@room.name}" %></p>
+    2: 
+    3: <div id="messages">
+    4:   <%= render "messages", collection: @messages %>
+    5: </div>
+    6: 
+    7: <form>
+  
+app/views/rooms/show.html.erb:4:in `_app_views_rooms_show_html_erb__114482203_138080780'
+Started GET "/rooms/1" for ::1 at 2020-06-15 18:33:46 +0900
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:11
+  Rendering rooms/show.html.erb within layouts/application
+  Rendered rooms/show.html.erb within layouts/application (0.8ms)
+Completed 500 Internal Server Error in 32ms (ActiveRecord: 0.8ms)
+
+
+  
+SyntaxError (C:/Users/y0113/takumari/app/views/rooms/show.html.erb:4: syntax error, unexpected tIDENTIFIER, expecting ')'
+...d=( render @messages collection: @messages );@output_buffer....
+...                     ^~~~~~~~~~):
+  
+app/views/rooms/show.html.erb:4: syntax error, unexpected tIDENTIFIER, expecting ')'
+Started GET "/rooms/1" for ::1 at 2020-06-15 18:34:36 +0900
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+  [1m[36mRoom Load (0.4ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:11
+  Rendering rooms/show.html.erb within layouts/application
+  Rendered rooms/show.html.erb within layouts/application (17.1ms)
+Completed 500 Internal Server Error in 62ms (ActiveRecord: 0.8ms)
+
+
+  
+ActionView::Template::Error (Missing partial rooms/_messages, application/_messages with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :slim, :coffee, :jbuilder]}. Searched in:
+  * "C:/Users/y0113/takumari/app/views"
+  * "C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/kaminari-core-1.2.0/app/views"
+  * "C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/devise-4.7.1/app/views"
+):
+    1: <p><%= "ルーム名：#{@room.name}" %></p>
+    2: 
+    3: <div id="messages">
+    4:   <%= render "messages", collection: @messages %>
+    5: </div>
+    6: 
+    7: <form>
+  
+app/views/rooms/show.html.erb:4:in `_app_views_rooms_show_html_erb__114482203_117288400'
+Started GET "/rooms/1" for ::1 at 2020-06-15 18:35:39 +0900
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+  [1m[36mRoom Load (0.4ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:11
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mMessage Load (1.1ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/views/rooms/show.html.erb:4
+  Rendered rooms/show.html.erb within layouts/application (15.4ms)
+Completed 500 Internal Server Error in 68ms (ActiveRecord: 2.8ms)
+
+
+  
+ActionView::Template::Error (SQLite3::SQLException: no such column: messages.room_id: SELECT "messages".* FROM "messages" WHERE "messages"."room_id" = ?):
+    1: <p><%= "ルーム名：#{@room.name}" %></p>
+    2: 
+    3: <div id="messages">
+    4:   <%= render @messages, collection: @messages %>
+    5: </div>
+    6: 
+    7: <form>
+  
+app/views/rooms/show.html.erb:4:in `_app_views_rooms_show_html_erb__114482203_108971760'
+Started GET "/rooms/1" for ::1 at 2020-06-15 18:36:00 +0900
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:11
+  Rendering rooms/show.html.erb within layouts/application
+  Rendered rooms/show.html.erb within layouts/application (1.0ms)
+Completed 500 Internal Server Error in 46ms (ActiveRecord: 0.7ms)
+
+
+  
+SyntaxError (C:/Users/y0113/takumari/app/views/rooms/show.html.erb:4: syntax error, unexpected tIDENTIFIER, expecting ')'
+...d=( render @messages collection: @messages );@output_buffer....
+...                     ^~~~~~~~~~):
+  
+app/views/rooms/show.html.erb:4: syntax error, unexpected tIDENTIFIER, expecting ')'
+Started GET "/rooms/1" for ::1 at 2020-06-15 18:55:52 +0900
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+  [1m[36mRoom Load (0.5ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:11
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mMessage Load (1.2ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/views/rooms/show.html.erb:4
+  Rendered rooms/show.html.erb within layouts/application (11.9ms)
+Completed 500 Internal Server Error in 61ms (ActiveRecord: 2.2ms)
+
+
+  
+ActionView::Template::Error (SQLite3::SQLException: no such column: messages.room_id: SELECT "messages".* FROM "messages" WHERE "messages"."room_id" = ?):
+    1: <p><%= "ルーム名：#{@room.name}" %></p>
+    2: 
+    3: <div id="messages">
+    4:   <%= render @messages, collection: @messages %>
+    5: </div>
+    6: 
+    7: <form>
+  
+app/views/rooms/show.html.erb:4:in `_app_views_rooms_show_html_erb__114482203_142650340'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+Migrating to AddRoomIdToMessages (20200615095740)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (2.5ms)[0m  [1m[35mALTER TABLE "messages" ADD "room_id" integer[0m
+  ↳ db/migrate/20200615095740_add_room_id_to_messages.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200615095740"]]
+  ↳ bin/rails:4
+  [1m[35m (5.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+Started GET "/rooms/1" for ::1 at 2020-06-15 18:58:51 +0900
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+  [1m[36mRoom Load (0.4ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:11
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/views/rooms/show.html.erb:4
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered rooms/show.html.erb within layouts/application (50.4ms)
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:31
+Completed 200 OK in 1906ms (Views: 1632.8ms | ActiveRecord: 9.5ms)
+
+
+Started GET "/cable" for ::1 at 2020-06-15 18:58:55 +0900
+Started GET "/cable/" [WebSocket] for ::1 at 2020-06-15 18:58:55 +0900
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Could not execute command from ({"command"=>"subscribe", "identifier"=>"{\"channel\":\"RoomChannel\"}"}) [SyntaxError - C:/Users/y0113/takumari/app/channels/room_channel.rb:11: syntax error, unexpected tLABEL, expecting ')'
+    Message.create! (content: data['message'][0], user_id:...
+                     ^~~~~~~~
+C:/Users/y0113/takumari/app/channels/room_channel.rb:11: syntax error, unexpected tLABEL, expecting '='
+...t: data['message'][0], user_id: data['message'][1].to_i, roo...
+...                       ^~~~~~~~
+C:/Users/y0113/takumari/app/channels/room_channel.rb:11: syntax error, unexpected tLABEL, expecting '='
+...ta['message'][1].to_i, room_id: data['message'][2].to_i)
+...                       ^~~~~~~~
+C:/Users/y0113/takumari/app/channels/room_channel.rb:11: syntax error, unexpected ')', expecting end
+...om_id: data['message'][2].to_i)
+...                              ^]: C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/dependencies.rb:476:in `load' | C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/dependencies.rb:476:in `block in load_file' | C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/dependencies.rb:661:in `new_constants_in' | C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/dependencies.rb:475:in `load_file' | C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/dependencies.rb:373:in `block in require_or_load'
+Could not execute command from ({"command"=>"message", "identifier"=>"{\"channel\":\"RoomChannel\"}", "data"=>"{\"message\":[\"aaa\",\"1\",\"1\"],\"action\":\"speak\"}"}) [RuntimeError - Unable to find subscription with identifier: {"channel":"RoomChannel"}]: C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actioncable-5.2.4.2/lib/action_cable/connection/subscriptions.rb:78:in `find' | C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actioncable-5.2.4.2/lib/action_cable/connection/subscriptions.rb:55:in `perform_action' | C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actioncable-5.2.4.2/lib/action_cable/connection/subscriptions.rb:19:in `execute_command' | C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actioncable-5.2.4.2/lib/action_cable/connection/base.rb:87:in `dispatch_websocket_message' | C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actioncable-5.2.4.2/lib/action_cable/server/worker.rb:60:in `block in invoke'
+Could not execute command from ({"command"=>"message", "identifier"=>"{\"channel\":\"RoomChannel\"}", "data"=>"{\"message\":[\"aaa\",\"1\",\"1\"],\"action\":\"speak\"}"}) [RuntimeError - Unable to find subscription with identifier: {"channel":"RoomChannel"}]: C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actioncable-5.2.4.2/lib/action_cable/connection/subscriptions.rb:78:in `find' | C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actioncable-5.2.4.2/lib/action_cable/connection/subscriptions.rb:55:in `perform_action' | C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actioncable-5.2.4.2/lib/action_cable/connection/subscriptions.rb:19:in `execute_command' | C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actioncable-5.2.4.2/lib/action_cable/connection/base.rb:87:in `dispatch_websocket_message' | C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actioncable-5.2.4.2/lib/action_cable/server/worker.rb:60:in `block in invoke'
+Could not execute command from ({"command"=>"message", "identifier"=>"{\"channel\":\"RoomChannel\"}", "data"=>"{\"message\":[\"aaa\",\"1\",\"1\"],\"action\":\"speak\"}"}) [RuntimeError - Unable to find subscription with identifier: {"channel":"RoomChannel"}]: C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actioncable-5.2.4.2/lib/action_cable/connection/subscriptions.rb:78:in `find' | C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actioncable-5.2.4.2/lib/action_cable/connection/subscriptions.rb:55:in `perform_action' | C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actioncable-5.2.4.2/lib/action_cable/connection/subscriptions.rb:19:in `execute_command' | C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actioncable-5.2.4.2/lib/action_cable/connection/base.rb:87:in `dispatch_websocket_message' | C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actioncable-5.2.4.2/lib/action_cable/server/worker.rb:60:in `block in invoke'
+Finished "/cable/" [WebSocket] for ::1 at 2020-06-15 19:03:03 +0900
+Started GET "/rooms/1" for ::1 at 2020-06-15 19:03:03 +0900
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+  [1m[36mRoom Load (0.4ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:11
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mMessage Load (0.7ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/views/rooms/show.html.erb:4
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered rooms/show.html.erb within layouts/application (16.7ms)
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:31
+Completed 200 OK in 213ms (Views: 176.8ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/cable" for ::1 at 2020-06-15 19:03:05 +0900
+Started GET "/cable/" [WebSocket] for ::1 at 2020-06-15 19:03:05 +0900
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Could not execute command from ({"command"=>"subscribe", "identifier"=>"{\"channel\":\"RoomChannel\"}"}) [SyntaxError - C:/Users/y0113/takumari/app/channels/room_channel.rb:11: syntax error, unexpected tLABEL, expecting ')'
+    Message.create! (content: data['message'][0], user_id:...
+                     ^~~~~~~~
+C:/Users/y0113/takumari/app/channels/room_channel.rb:11: syntax error, unexpected tLABEL, expecting '='
+...t: data['message'][0], user_id: data['message'][1].to_i, roo...
+...                       ^~~~~~~~
+C:/Users/y0113/takumari/app/channels/room_channel.rb:11: syntax error, unexpected tLABEL, expecting '='
+...ta['message'][1].to_i, room_id: data['message'][2].to_i)
+...                       ^~~~~~~~
+C:/Users/y0113/takumari/app/channels/room_channel.rb:11: syntax error, unexpected ')', expecting end
+...om_id: data['message'][2].to_i)
+...                              ^]: C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/dependencies.rb:476:in `load' | C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/dependencies.rb:476:in `block in load_file' | C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/dependencies.rb:661:in `new_constants_in' | C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/dependencies.rb:475:in `load_file' | C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/dependencies.rb:373:in `block in require_or_load'
+Could not execute command from ({"command"=>"message", "identifier"=>"{\"channel\":\"RoomChannel\"}", "data"=>"{\"message\":[\"a\",\"1\",\"1\"],\"action\":\"speak\"}"}) [RuntimeError - Unable to find subscription with identifier: {"channel":"RoomChannel"}]: C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actioncable-5.2.4.2/lib/action_cable/connection/subscriptions.rb:78:in `find' | C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actioncable-5.2.4.2/lib/action_cable/connection/subscriptions.rb:55:in `perform_action' | C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actioncable-5.2.4.2/lib/action_cable/connection/subscriptions.rb:19:in `execute_command' | C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actioncable-5.2.4.2/lib/action_cable/connection/base.rb:87:in `dispatch_websocket_message' | C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actioncable-5.2.4.2/lib/action_cable/server/worker.rb:60:in `block in invoke'
+Finished "/cable/" [WebSocket] for ::1 at 2020-06-15 19:05:45 +0900
+Started GET "/rooms/1" for ::1 at 2020-06-15 19:05:45 +0900
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+  [1m[36mRoom Load (0.4ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:11
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/views/rooms/show.html.erb:4
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered rooms/show.html.erb within layouts/application (11.1ms)
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:31
+Completed 200 OK in 261ms (Views: 193.6ms | ActiveRecord: 8.2ms)
+
+
+Started GET "/cable" for ::1 at 2020-06-15 19:05:47 +0900
+Started GET "/cable/" [WebSocket] for ::1 at 2020-06-15 19:05:48 +0900
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room_channel
+RoomChannel#speak({"message"=>["a", "1", "1"]})
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/channels/room_channel.rb:12
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:12
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:12
+  [1m[36mMessage Create (5.2ms)[0m  [1m[32mINSERT INTO "messages" ("content", "created_at", "updated_at", "user_id", "room_id") VALUES (?, ?, ?, ?, ?)[0m  [["content", "a"], ["created_at", "2020-06-15 10:05:51.542404"], ["updated_at", "2020-06-15 10:05:51.542404"], ["user_id", 1], ["room_id", 1]]
+  ↳ app/channels/room_channel.rb:12
+  [1m[35m (38.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/channels/room_channel.rb:12
+[ActiveJob] Enqueued MessageBroadcastJob (Job ID: 9bf04880-7d0f-4881-a7ee-53321de848ac) to Async(default) with arguments: #<GlobalID:0x00000000107ffe30 @uri=#<URI::GID gid://takumari/Message/5>>
+[ActionCable] Broadcasting to room_channel: {:message=>"a"}
+RoomChannel transmitting {"message"=>"a"} (via streamed from room_channel)
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [MessageBroadcastJob] [9bf04880-7d0f-4881-a7ee-53321de848ac] Performing MessageBroadcastJob (Job ID: 9bf04880-7d0f-4881-a7ee-53321de848ac) from Async(default) with arguments: #<GlobalID:0x0000000010821350 @uri=#<URI::GID gid://takumari/Message/5>>
+[ActiveJob] [MessageBroadcastJob] [9bf04880-7d0f-4881-a7ee-53321de848ac]   Rendered messages/_message.html.erb (51.5ms)
+[ActiveJob] [MessageBroadcastJob] [9bf04880-7d0f-4881-a7ee-53321de848ac] Error performing MessageBroadcastJob (Job ID: 9bf04880-7d0f-4881-a7ee-53321de848ac) from Async(default) in 256.77ms: ActionView::Template::Error (undefined method `each' for nil:NilClass):
+C:/Users/y0113/takumari/app/views/messages/_message.html.erb:1:in `_app_views_messages__message_html_erb__898971033_138791660'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/template.rb:159:in `block in render'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/notifications.rb:170:in `instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/template.rb:354:in `instrument_render_template'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/template.rb:157:in `render'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/renderer/partial_renderer.rb:344:in `block in render_partial'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/renderer/abstract_renderer.rb:44:in `block in instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/notifications.rb:168:in `block in instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/notifications/instrumenter.rb:23:in `instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/notifications.rb:168:in `instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/renderer/abstract_renderer.rb:43:in `instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/renderer/partial_renderer.rb:333:in `render_partial'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/renderer/partial_renderer.rb:312:in `render'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/renderer/renderer.rb:49:in `render_partial'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/renderer/renderer.rb:23:in `render'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/rendering.rb:103:in `_render_template'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.2.4.2/lib/action_controller/metal/streaming.rb:219:in `_render_template'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/rendering.rb:84:in `render_to_body'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.2.4.2/lib/action_controller/metal/rendering.rb:52:in `render_to_body'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.2.4.2/lib/action_controller/metal/renderers.rb:142:in `render_to_body'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.2.4.2/lib/abstract_controller/rendering.rb:46:in `render_to_string'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.2.4.2/lib/action_controller/metal/rendering.rb:41:in `render_to_string'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.2.4.2/lib/action_controller/renderer.rb:83:in `render'
+C:/Users/y0113/takumari/app/jobs/message_broadcast_job.rb:10:in `render_message'
+C:/Users/y0113/takumari/app/jobs/message_broadcast_job.rb:5:in `perform'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/execution.rb:39:in `block in perform_now'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:109:in `block in run_callbacks'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/i18n-1.8.2/lib/i18n.rb:313:in `with_locale'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/translation.rb:9:in `block (2 levels) in <module:Translation>'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:118:in `instance_exec'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/logging.rb:26:in `block (4 levels) in <module:Logging>'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/notifications.rb:168:in `block in instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/notifications/instrumenter.rb:23:in `instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/notifications.rb:168:in `instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/logging.rb:25:in `block (3 levels) in <module:Logging>'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/logging.rb:46:in `block in tag_logger'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/tagged_logging.rb:71:in `block in tagged'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/tagged_logging.rb:28:in `tagged'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/tagged_logging.rb:71:in `tagged'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/logging.rb:46:in `tag_logger'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/logging.rb:22:in `block (2 levels) in <module:Logging>'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:118:in `instance_exec'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:136:in `run_callbacks'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/execution.rb:38:in `perform_now'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/execution.rb:24:in `block in execute'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:109:in `block in run_callbacks'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/railtie.rb:28:in `block (4 levels) in <class:Railtie>'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/execution_wrapper.rb:87:in `wrap'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/reloader.rb:73:in `block in wrap'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/execution_wrapper.rb:87:in `wrap'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/reloader.rb:72:in `wrap'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/railtie.rb:27:in `block (3 levels) in <class:Railtie>'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:118:in `instance_exec'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:136:in `run_callbacks'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/execution.rb:22:in `execute'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/queue_adapters/async_adapter.rb:70:in `perform'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:353:in `run_task'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:342:in `block (3 levels) in create_worker'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:325:in `loop'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:325:in `block (2 levels) in create_worker'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:324:in `catch'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:324:in `block in create_worker'
+Finished "/cable/" [WebSocket] for ::1 at 2020-06-15 19:07:45 +0900
+RoomChannel stopped streaming from room_channel
+Started GET "/rooms/1" for ::1 at 2020-06-15 19:07:45 +0900
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+  [1m[36mRoom Load (0.4ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:11
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mMessage Load (0.6ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/views/rooms/show.html.erb:6
+  Rendered collection of messages/_message.html.erb [1 times] (0.9ms)
+  Rendered rooms/show.html.erb within layouts/application (13.2ms)
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:31
+Completed 200 OK in 222ms (Views: 189.5ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/cable" for ::1 at 2020-06-15 19:07:47 +0900
+Started GET "/cable/" [WebSocket] for ::1 at 2020-06-15 19:07:47 +0900
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room_channel
+RoomChannel#speak({"message"=>["aaa", "1", "1"]})
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/channels/room_channel.rb:12
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:12
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:12
+  [1m[36mMessage Create (4.8ms)[0m  [1m[32mINSERT INTO "messages" ("content", "created_at", "updated_at", "user_id", "room_id") VALUES (?, ?, ?, ?, ?)[0m  [["content", "aaa"], ["created_at", "2020-06-15 10:07:51.683636"], ["updated_at", "2020-06-15 10:07:51.683636"], ["user_id", 1], ["room_id", 1]]
+  ↳ app/channels/room_channel.rb:12
+  [1m[35m (5.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/channels/room_channel.rb:12
+[ActiveJob] Enqueued MessageBroadcastJob (Job ID: 37b24a4e-1f58-410a-ab37-1996cd1f797d) to Async(default) with arguments: #<GlobalID:0x0000000010905280 @uri=#<URI::GID gid://takumari/Message/6>>
+[ActionCable] Broadcasting to room_channel: {:message=>"aaa"}
+RoomChannel transmitting {"message"=>"aaa"} (via streamed from room_channel)
+  [1m[36mMessage Load (0.7ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [MessageBroadcastJob] [37b24a4e-1f58-410a-ab37-1996cd1f797d] Performing MessageBroadcastJob (Job ID: 37b24a4e-1f58-410a-ab37-1996cd1f797d) from Async(default) with arguments: #<GlobalID:0x000000001093d090 @uri=#<URI::GID gid://takumari/Message/6>>
+[ActiveJob] [MessageBroadcastJob] [37b24a4e-1f58-410a-ab37-1996cd1f797d]   Rendered messages/_message.html.erb (43.6ms)
+[ActiveJob] [MessageBroadcastJob] [37b24a4e-1f58-410a-ab37-1996cd1f797d] Error performing MessageBroadcastJob (Job ID: 37b24a4e-1f58-410a-ab37-1996cd1f797d) from Async(default) in 90.05ms: ActionView::Template::Error (undefined method `each' for nil:NilClass):
+C:/Users/y0113/takumari/app/views/messages/_message.html.erb:1:in `_app_views_messages__message_html_erb__898971033_139080200'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/template.rb:159:in `block in render'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/notifications.rb:170:in `instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/template.rb:354:in `instrument_render_template'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/template.rb:157:in `render'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/renderer/partial_renderer.rb:344:in `block in render_partial'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/renderer/abstract_renderer.rb:44:in `block in instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/notifications.rb:168:in `block in instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/notifications/instrumenter.rb:23:in `instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/notifications.rb:168:in `instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/renderer/abstract_renderer.rb:43:in `instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/renderer/partial_renderer.rb:333:in `render_partial'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/renderer/partial_renderer.rb:312:in `render'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/renderer/renderer.rb:49:in `render_partial'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/renderer/renderer.rb:23:in `render'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/rendering.rb:103:in `_render_template'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.2.4.2/lib/action_controller/metal/streaming.rb:219:in `_render_template'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/rendering.rb:84:in `render_to_body'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.2.4.2/lib/action_controller/metal/rendering.rb:52:in `render_to_body'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.2.4.2/lib/action_controller/metal/renderers.rb:142:in `render_to_body'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.2.4.2/lib/abstract_controller/rendering.rb:46:in `render_to_string'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.2.4.2/lib/action_controller/metal/rendering.rb:41:in `render_to_string'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.2.4.2/lib/action_controller/renderer.rb:83:in `render'
+C:/Users/y0113/takumari/app/jobs/message_broadcast_job.rb:10:in `render_message'
+C:/Users/y0113/takumari/app/jobs/message_broadcast_job.rb:5:in `perform'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/execution.rb:39:in `block in perform_now'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:109:in `block in run_callbacks'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/i18n-1.8.2/lib/i18n.rb:313:in `with_locale'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/translation.rb:9:in `block (2 levels) in <module:Translation>'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:118:in `instance_exec'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/logging.rb:26:in `block (4 levels) in <module:Logging>'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/notifications.rb:168:in `block in instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/notifications/instrumenter.rb:23:in `instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/notifications.rb:168:in `instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/logging.rb:25:in `block (3 levels) in <module:Logging>'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/logging.rb:46:in `block in tag_logger'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/tagged_logging.rb:71:in `block in tagged'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/tagged_logging.rb:28:in `tagged'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/tagged_logging.rb:71:in `tagged'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/logging.rb:46:in `tag_logger'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/logging.rb:22:in `block (2 levels) in <module:Logging>'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:118:in `instance_exec'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:136:in `run_callbacks'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/execution.rb:38:in `perform_now'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/execution.rb:24:in `block in execute'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:109:in `block in run_callbacks'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/railtie.rb:28:in `block (4 levels) in <class:Railtie>'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/execution_wrapper.rb:87:in `wrap'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/reloader.rb:73:in `block in wrap'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/execution_wrapper.rb:87:in `wrap'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/reloader.rb:72:in `wrap'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/railtie.rb:27:in `block (3 levels) in <class:Railtie>'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:118:in `instance_exec'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:136:in `run_callbacks'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/execution.rb:22:in `execute'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/queue_adapters/async_adapter.rb:70:in `perform'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:353:in `run_task'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:342:in `block (3 levels) in create_worker'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:325:in `loop'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:325:in `block (2 levels) in create_worker'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:324:in `catch'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:324:in `block in create_worker'
+RoomChannel#speak({"message"=>["a", "1", "1"]})
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/channels/room_channel.rb:12
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:12
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:12
+  [1m[36mMessage Create (4.8ms)[0m  [1m[32mINSERT INTO "messages" ("content", "created_at", "updated_at", "user_id", "room_id") VALUES (?, ?, ?, ?, ?)[0m  [["content", "a"], ["created_at", "2020-06-15 10:08:54.898974"], ["updated_at", "2020-06-15 10:08:54.898974"], ["user_id", 1], ["room_id", 1]]
+  ↳ app/channels/room_channel.rb:12
+  [1m[35m (29.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/channels/room_channel.rb:12
+[ActiveJob] Enqueued MessageBroadcastJob (Job ID: 5608b970-b4af-4e5d-89c8-c050224ad488) to Async(default) with arguments: #<GlobalID:0x000000001144ea38 @uri=#<URI::GID gid://takumari/Message/7>>
+[ActionCable] Broadcasting to room_channel: {:message=>"a"}
+RoomChannel transmitting {"message"=>"a"} (via streamed from room_channel)
+  [1m[36mMessage Load (0.3ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [MessageBroadcastJob] [5608b970-b4af-4e5d-89c8-c050224ad488] Performing MessageBroadcastJob (Job ID: 5608b970-b4af-4e5d-89c8-c050224ad488) from Async(default) with arguments: #<GlobalID:0x00000000114556f8 @uri=#<URI::GID gid://takumari/Message/7>>
+[ActiveJob] [MessageBroadcastJob] [5608b970-b4af-4e5d-89c8-c050224ad488]   Rendered messages/_message.html.erb (40.6ms)
+[ActiveJob] [MessageBroadcastJob] [5608b970-b4af-4e5d-89c8-c050224ad488] Error performing MessageBroadcastJob (Job ID: 5608b970-b4af-4e5d-89c8-c050224ad488) from Async(default) in 82.22ms: ActionView::Template::Error (undefined method `each' for nil:NilClass):
+C:/Users/y0113/takumari/app/views/messages/_message.html.erb:1:in `_app_views_messages__message_html_erb__898971033_144896900'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/template.rb:159:in `block in render'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/notifications.rb:170:in `instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/template.rb:354:in `instrument_render_template'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/template.rb:157:in `render'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/renderer/partial_renderer.rb:344:in `block in render_partial'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/renderer/abstract_renderer.rb:44:in `block in instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/notifications.rb:168:in `block in instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/notifications/instrumenter.rb:23:in `instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/notifications.rb:168:in `instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/renderer/abstract_renderer.rb:43:in `instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/renderer/partial_renderer.rb:333:in `render_partial'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/renderer/partial_renderer.rb:312:in `render'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/renderer/renderer.rb:49:in `render_partial'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/renderer/renderer.rb:23:in `render'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/rendering.rb:103:in `_render_template'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.2.4.2/lib/action_controller/metal/streaming.rb:219:in `_render_template'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/rendering.rb:84:in `render_to_body'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.2.4.2/lib/action_controller/metal/rendering.rb:52:in `render_to_body'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.2.4.2/lib/action_controller/metal/renderers.rb:142:in `render_to_body'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.2.4.2/lib/abstract_controller/rendering.rb:46:in `render_to_string'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.2.4.2/lib/action_controller/metal/rendering.rb:41:in `render_to_string'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.2.4.2/lib/action_controller/renderer.rb:83:in `render'
+C:/Users/y0113/takumari/app/jobs/message_broadcast_job.rb:10:in `render_message'
+C:/Users/y0113/takumari/app/jobs/message_broadcast_job.rb:5:in `perform'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/execution.rb:39:in `block in perform_now'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:109:in `block in run_callbacks'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/i18n-1.8.2/lib/i18n.rb:313:in `with_locale'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/translation.rb:9:in `block (2 levels) in <module:Translation>'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:118:in `instance_exec'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/logging.rb:26:in `block (4 levels) in <module:Logging>'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/notifications.rb:168:in `block in instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/notifications/instrumenter.rb:23:in `instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/notifications.rb:168:in `instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/logging.rb:25:in `block (3 levels) in <module:Logging>'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/logging.rb:46:in `block in tag_logger'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/tagged_logging.rb:71:in `block in tagged'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/tagged_logging.rb:28:in `tagged'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/tagged_logging.rb:71:in `tagged'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/logging.rb:46:in `tag_logger'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/logging.rb:22:in `block (2 levels) in <module:Logging>'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:118:in `instance_exec'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:136:in `run_callbacks'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/execution.rb:38:in `perform_now'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/execution.rb:24:in `block in execute'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:109:in `block in run_callbacks'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/railtie.rb:28:in `block (4 levels) in <class:Railtie>'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/execution_wrapper.rb:87:in `wrap'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/reloader.rb:73:in `block in wrap'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/execution_wrapper.rb:87:in `wrap'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/reloader.rb:72:in `wrap'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/railtie.rb:27:in `block (3 levels) in <class:Railtie>'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:118:in `instance_exec'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:136:in `run_callbacks'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/execution.rb:22:in `execute'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/queue_adapters/async_adapter.rb:70:in `perform'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:353:in `run_task'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:342:in `block (3 levels) in create_worker'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:325:in `loop'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:325:in `block (2 levels) in create_worker'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:324:in `catch'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:324:in `block in create_worker'
+RoomChannel#speak({"message"=>["u", "1", "1"]})
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/channels/room_channel.rb:12
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:12
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:12
+  [1m[36mMessage Create (4.4ms)[0m  [1m[32mINSERT INTO "messages" ("content", "created_at", "updated_at", "user_id", "room_id") VALUES (?, ?, ?, ?, ?)[0m  [["content", "u"], ["created_at", "2020-06-15 10:09:00.966386"], ["updated_at", "2020-06-15 10:09:00.966386"], ["user_id", 1], ["room_id", 1]]
+  ↳ app/channels/room_channel.rb:12
+  [1m[35m (40.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/channels/room_channel.rb:12
+[ActiveJob] Enqueued MessageBroadcastJob (Job ID: 7c766ba4-a0ea-46f2-a81b-9e1cd03a5a1e) to Async(default) with arguments: #<GlobalID:0x00000000114df718 @uri=#<URI::GID gid://takumari/Message/8>>
+[ActionCable] Broadcasting to room_channel: {:message=>"u"}
+RoomChannel transmitting {"message"=>"u"} (via streamed from room_channel)
+  [1m[36mMessage Load (0.3ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [MessageBroadcastJob] [7c766ba4-a0ea-46f2-a81b-9e1cd03a5a1e] Performing MessageBroadcastJob (Job ID: 7c766ba4-a0ea-46f2-a81b-9e1cd03a5a1e) from Async(default) with arguments: #<GlobalID:0x000000001150bc78 @uri=#<URI::GID gid://takumari/Message/8>>
+[ActiveJob] [MessageBroadcastJob] [7c766ba4-a0ea-46f2-a81b-9e1cd03a5a1e]   Rendered messages/_message.html.erb (37.7ms)
+[ActiveJob] [MessageBroadcastJob] [7c766ba4-a0ea-46f2-a81b-9e1cd03a5a1e] Error performing MessageBroadcastJob (Job ID: 7c766ba4-a0ea-46f2-a81b-9e1cd03a5a1e) from Async(default) in 73.75ms: ActionView::Template::Error (undefined method `each' for nil:NilClass):
+C:/Users/y0113/takumari/app/views/messages/_message.html.erb:1:in `_app_views_messages__message_html_erb__898971033_145246200'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/template.rb:159:in `block in render'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/notifications.rb:170:in `instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/template.rb:354:in `instrument_render_template'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/template.rb:157:in `render'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/renderer/partial_renderer.rb:344:in `block in render_partial'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/renderer/abstract_renderer.rb:44:in `block in instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/notifications.rb:168:in `block in instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/notifications/instrumenter.rb:23:in `instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/notifications.rb:168:in `instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/renderer/abstract_renderer.rb:43:in `instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/renderer/partial_renderer.rb:333:in `render_partial'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/renderer/partial_renderer.rb:312:in `render'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/renderer/renderer.rb:49:in `render_partial'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/renderer/renderer.rb:23:in `render'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/rendering.rb:103:in `_render_template'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.2.4.2/lib/action_controller/metal/streaming.rb:219:in `_render_template'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/rendering.rb:84:in `render_to_body'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.2.4.2/lib/action_controller/metal/rendering.rb:52:in `render_to_body'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.2.4.2/lib/action_controller/metal/renderers.rb:142:in `render_to_body'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.2.4.2/lib/abstract_controller/rendering.rb:46:in `render_to_string'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.2.4.2/lib/action_controller/metal/rendering.rb:41:in `render_to_string'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.2.4.2/lib/action_controller/renderer.rb:83:in `render'
+C:/Users/y0113/takumari/app/jobs/message_broadcast_job.rb:10:in `render_message'
+C:/Users/y0113/takumari/app/jobs/message_broadcast_job.rb:5:in `perform'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/execution.rb:39:in `block in perform_now'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:109:in `block in run_callbacks'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/i18n-1.8.2/lib/i18n.rb:313:in `with_locale'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/translation.rb:9:in `block (2 levels) in <module:Translation>'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:118:in `instance_exec'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/logging.rb:26:in `block (4 levels) in <module:Logging>'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/notifications.rb:168:in `block in instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/notifications/instrumenter.rb:23:in `instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/notifications.rb:168:in `instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/logging.rb:25:in `block (3 levels) in <module:Logging>'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/logging.rb:46:in `block in tag_logger'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/tagged_logging.rb:71:in `block in tagged'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/tagged_logging.rb:28:in `tagged'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/tagged_logging.rb:71:in `tagged'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/logging.rb:46:in `tag_logger'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/logging.rb:22:in `block (2 levels) in <module:Logging>'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:118:in `instance_exec'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:136:in `run_callbacks'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/execution.rb:38:in `perform_now'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/execution.rb:24:in `block in execute'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:109:in `block in run_callbacks'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/railtie.rb:28:in `block (4 levels) in <class:Railtie>'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/execution_wrapper.rb:87:in `wrap'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/reloader.rb:73:in `block in wrap'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/execution_wrapper.rb:87:in `wrap'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/reloader.rb:72:in `wrap'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/railtie.rb:27:in `block (3 levels) in <class:Railtie>'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:118:in `instance_exec'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:136:in `run_callbacks'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/execution.rb:22:in `execute'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/queue_adapters/async_adapter.rb:70:in `perform'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:353:in `run_task'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:342:in `block (3 levels) in create_worker'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:325:in `loop'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:325:in `block (2 levels) in create_worker'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:324:in `catch'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:324:in `block in create_worker'
+RoomChannel#speak({"message"=>["i", "1", "1"]})
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/channels/room_channel.rb:12
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:12
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:12
+  [1m[36mMessage Create (4.8ms)[0m  [1m[32mINSERT INTO "messages" ("content", "created_at", "updated_at", "user_id", "room_id") VALUES (?, ?, ?, ?, ?)[0m  [["content", "i"], ["created_at", "2020-06-15 10:09:05.354947"], ["updated_at", "2020-06-15 10:09:05.354947"], ["user_id", 1], ["room_id", 1]]
+  ↳ app/channels/room_channel.rb:12
+  [1m[35m (38.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/channels/room_channel.rb:12
+[ActiveJob] Enqueued MessageBroadcastJob (Job ID: 68b5d1b1-3a37-48f5-bbb3-b2e5e4206cd4) to Async(default) with arguments: #<GlobalID:0x000000001158bcc0 @uri=#<URI::GID gid://takumari/Message/9>>
+[ActionCable] Broadcasting to room_channel: {:message=>"i"}
+RoomChannel transmitting {"message"=>"i"} (via streamed from room_channel)
+  [1m[36mMessage Load (0.3ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [MessageBroadcastJob] [68b5d1b1-3a37-48f5-bbb3-b2e5e4206cd4] Performing MessageBroadcastJob (Job ID: 68b5d1b1-3a37-48f5-bbb3-b2e5e4206cd4) from Async(default) with arguments: #<GlobalID:0x0000000008a47240 @uri=#<URI::GID gid://takumari/Message/9>>
+[ActiveJob] [MessageBroadcastJob] [68b5d1b1-3a37-48f5-bbb3-b2e5e4206cd4]   Rendered messages/_message.html.erb (40.9ms)
+[ActiveJob] [MessageBroadcastJob] [68b5d1b1-3a37-48f5-bbb3-b2e5e4206cd4] Error performing MessageBroadcastJob (Job ID: 68b5d1b1-3a37-48f5-bbb3-b2e5e4206cd4) from Async(default) in 75.21ms: ActionView::Template::Error (undefined method `each' for nil:NilClass):
+C:/Users/y0113/takumari/app/views/messages/_message.html.erb:1:in `_app_views_messages__message_html_erb__898971033_77684980'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/template.rb:159:in `block in render'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/notifications.rb:170:in `instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/template.rb:354:in `instrument_render_template'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/template.rb:157:in `render'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/renderer/partial_renderer.rb:344:in `block in render_partial'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/renderer/abstract_renderer.rb:44:in `block in instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/notifications.rb:168:in `block in instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/notifications/instrumenter.rb:23:in `instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/notifications.rb:168:in `instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/renderer/abstract_renderer.rb:43:in `instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/renderer/partial_renderer.rb:333:in `render_partial'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/renderer/partial_renderer.rb:312:in `render'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/renderer/renderer.rb:49:in `render_partial'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/renderer/renderer.rb:23:in `render'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/rendering.rb:103:in `_render_template'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.2.4.2/lib/action_controller/metal/streaming.rb:219:in `_render_template'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/rendering.rb:84:in `render_to_body'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.2.4.2/lib/action_controller/metal/rendering.rb:52:in `render_to_body'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.2.4.2/lib/action_controller/metal/renderers.rb:142:in `render_to_body'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.2.4.2/lib/abstract_controller/rendering.rb:46:in `render_to_string'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.2.4.2/lib/action_controller/metal/rendering.rb:41:in `render_to_string'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.2.4.2/lib/action_controller/renderer.rb:83:in `render'
+C:/Users/y0113/takumari/app/jobs/message_broadcast_job.rb:10:in `render_message'
+C:/Users/y0113/takumari/app/jobs/message_broadcast_job.rb:5:in `perform'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/execution.rb:39:in `block in perform_now'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:109:in `block in run_callbacks'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/i18n-1.8.2/lib/i18n.rb:313:in `with_locale'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/translation.rb:9:in `block (2 levels) in <module:Translation>'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:118:in `instance_exec'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/logging.rb:26:in `block (4 levels) in <module:Logging>'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/notifications.rb:168:in `block in instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/notifications/instrumenter.rb:23:in `instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/notifications.rb:168:in `instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/logging.rb:25:in `block (3 levels) in <module:Logging>'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/logging.rb:46:in `block in tag_logger'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/tagged_logging.rb:71:in `block in tagged'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/tagged_logging.rb:28:in `tagged'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/tagged_logging.rb:71:in `tagged'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/logging.rb:46:in `tag_logger'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/logging.rb:22:in `block (2 levels) in <module:Logging>'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:118:in `instance_exec'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:136:in `run_callbacks'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/execution.rb:38:in `perform_now'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/execution.rb:24:in `block in execute'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:109:in `block in run_callbacks'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/railtie.rb:28:in `block (4 levels) in <class:Railtie>'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/execution_wrapper.rb:87:in `wrap'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/reloader.rb:73:in `block in wrap'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/execution_wrapper.rb:87:in `wrap'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/reloader.rb:72:in `wrap'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/railtie.rb:27:in `block (3 levels) in <class:Railtie>'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:118:in `instance_exec'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:136:in `run_callbacks'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/execution.rb:22:in `execute'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/queue_adapters/async_adapter.rb:70:in `perform'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:353:in `run_task'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:342:in `block (3 levels) in create_worker'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:325:in `loop'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:325:in `block (2 levels) in create_worker'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:324:in `catch'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:324:in `block in create_worker'
+RoomChannel#speak({"message"=>["sdl", "1", "1"]})
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/channels/room_channel.rb:12
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:12
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:12
+  [1m[36mMessage Create (4.9ms)[0m  [1m[32mINSERT INTO "messages" ("content", "created_at", "updated_at", "user_id", "room_id") VALUES (?, ?, ?, ?, ?)[0m  [["content", "sdl"], ["created_at", "2020-06-15 10:09:08.472730"], ["updated_at", "2020-06-15 10:09:08.472730"], ["user_id", 1], ["room_id", 1]]
+  ↳ app/channels/room_channel.rb:12
+  [1m[35m (5.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/channels/room_channel.rb:12
+[ActiveJob] Enqueued MessageBroadcastJob (Job ID: 06987137-6a1e-4cf8-b225-a88604c2bca5) to Async(default) with arguments: #<GlobalID:0x000000000d2403a8 @uri=#<URI::GID gid://takumari/Message/10>>
+[ActionCable] Broadcasting to room_channel: {:message=>"sdl"}
+RoomChannel transmitting {"message"=>"sdl"} (via streamed from room_channel)
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [MessageBroadcastJob] [06987137-6a1e-4cf8-b225-a88604c2bca5] Performing MessageBroadcastJob (Job ID: 06987137-6a1e-4cf8-b225-a88604c2bca5) from Async(default) with arguments: #<GlobalID:0x000000000d36c128 @uri=#<URI::GID gid://takumari/Message/10>>
+[ActiveJob] [MessageBroadcastJob] [06987137-6a1e-4cf8-b225-a88604c2bca5]   Rendered messages/_message.html.erb (40.1ms)
+[ActiveJob] [MessageBroadcastJob] [06987137-6a1e-4cf8-b225-a88604c2bca5] Error performing MessageBroadcastJob (Job ID: 06987137-6a1e-4cf8-b225-a88604c2bca5) from Async(default) in 76.09ms: ActionView::Template::Error (undefined method `each' for nil:NilClass):
+C:/Users/y0113/takumari/app/views/messages/_message.html.erb:1:in `_app_views_messages__message_html_erb__898971033_110968540'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/template.rb:159:in `block in render'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/notifications.rb:170:in `instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/template.rb:354:in `instrument_render_template'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/template.rb:157:in `render'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/renderer/partial_renderer.rb:344:in `block in render_partial'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/renderer/abstract_renderer.rb:44:in `block in instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/notifications.rb:168:in `block in instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/notifications/instrumenter.rb:23:in `instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/notifications.rb:168:in `instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/renderer/abstract_renderer.rb:43:in `instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/renderer/partial_renderer.rb:333:in `render_partial'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/renderer/partial_renderer.rb:312:in `render'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/renderer/renderer.rb:49:in `render_partial'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/renderer/renderer.rb:23:in `render'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/rendering.rb:103:in `_render_template'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.2.4.2/lib/action_controller/metal/streaming.rb:219:in `_render_template'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/rendering.rb:84:in `render_to_body'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.2.4.2/lib/action_controller/metal/rendering.rb:52:in `render_to_body'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.2.4.2/lib/action_controller/metal/renderers.rb:142:in `render_to_body'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.2.4.2/lib/abstract_controller/rendering.rb:46:in `render_to_string'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.2.4.2/lib/action_controller/metal/rendering.rb:41:in `render_to_string'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.2.4.2/lib/action_controller/renderer.rb:83:in `render'
+C:/Users/y0113/takumari/app/jobs/message_broadcast_job.rb:10:in `render_message'
+C:/Users/y0113/takumari/app/jobs/message_broadcast_job.rb:5:in `perform'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/execution.rb:39:in `block in perform_now'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:109:in `block in run_callbacks'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/i18n-1.8.2/lib/i18n.rb:313:in `with_locale'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/translation.rb:9:in `block (2 levels) in <module:Translation>'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:118:in `instance_exec'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/logging.rb:26:in `block (4 levels) in <module:Logging>'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/notifications.rb:168:in `block in instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/notifications/instrumenter.rb:23:in `instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/notifications.rb:168:in `instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/logging.rb:25:in `block (3 levels) in <module:Logging>'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/logging.rb:46:in `block in tag_logger'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/tagged_logging.rb:71:in `block in tagged'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/tagged_logging.rb:28:in `tagged'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/tagged_logging.rb:71:in `tagged'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/logging.rb:46:in `tag_logger'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/logging.rb:22:in `block (2 levels) in <module:Logging>'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:118:in `instance_exec'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:136:in `run_callbacks'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/execution.rb:38:in `perform_now'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/execution.rb:24:in `block in execute'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:109:in `block in run_callbacks'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/railtie.rb:28:in `block (4 levels) in <class:Railtie>'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/execution_wrapper.rb:87:in `wrap'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/reloader.rb:73:in `block in wrap'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/execution_wrapper.rb:87:in `wrap'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/reloader.rb:72:in `wrap'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/railtie.rb:27:in `block (3 levels) in <class:Railtie>'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:118:in `instance_exec'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:136:in `run_callbacks'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/execution.rb:22:in `execute'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/queue_adapters/async_adapter.rb:70:in `perform'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:353:in `run_task'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:342:in `block (3 levels) in create_worker'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:325:in `loop'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:325:in `block (2 levels) in create_worker'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:324:in `catch'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:324:in `block in create_worker'
+RoomChannel#speak({"message"=>["", "1", "1"]})
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/channels/room_channel.rb:12
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:12
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:12
+  [1m[36mMessage Create (5.5ms)[0m  [1m[32mINSERT INTO "messages" ("content", "created_at", "updated_at", "user_id", "room_id") VALUES (?, ?, ?, ?, ?)[0m  [["content", ""], ["created_at", "2020-06-15 10:09:14.015790"], ["updated_at", "2020-06-15 10:09:14.015790"], ["user_id", 1], ["room_id", 1]]
+  ↳ app/channels/room_channel.rb:12
+  [1m[35m (29.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/channels/room_channel.rb:12
+[ActiveJob] Enqueued MessageBroadcastJob (Job ID: 8b17bb6c-0c69-42f7-9dd4-987bb36382fd) to Async(default) with arguments: #<GlobalID:0x000000000d700500 @uri=#<URI::GID gid://takumari/Message/11>>
+[ActionCable] Broadcasting to room_channel: {:message=>""}
+RoomChannel transmitting {"message"=>""} (via streamed from room_channel)
+RoomChannel#speak({"message"=>["", "1", "1"]})
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/channels/room_channel.rb:12
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:12
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:12
+  [1m[36mMessage Create (4.6ms)[0m  [1m[32mINSERT INTO "messages" ("content", "created_at", "updated_at", "user_id", "room_id") VALUES (?, ?, ?, ?, ?)[0m  [["content", ""], ["created_at", "2020-06-15 10:09:14.182106"], ["updated_at", "2020-06-15 10:09:14.182106"], ["user_id", 1], ["room_id", 1]]
+  ↳ app/channels/room_channel.rb:12
+  [1m[35m (35.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/channels/room_channel.rb:12
+[ActiveJob] Enqueued MessageBroadcastJob (Job ID: d6574444-a2d5-40a2-ac94-af9923eb45f0) to Async(default) with arguments: #<GlobalID:0x000000000d95d988 @uri=#<URI::GID gid://takumari/Message/12>>
+[ActionCable] Broadcasting to room_channel: {:message=>""}
+RoomChannel transmitting {"message"=>""} (via streamed from room_channel)
+  [1m[36mMessage Load (0.6ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [MessageBroadcastJob] [8b17bb6c-0c69-42f7-9dd4-987bb36382fd] Performing MessageBroadcastJob (Job ID: 8b17bb6c-0c69-42f7-9dd4-987bb36382fd) from Async(default) with arguments: #<GlobalID:0x000000000dada518 @uri=#<URI::GID gid://takumari/Message/11>>
+RoomChannel#speak({"message"=>["", "1", "1"]})
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/channels/room_channel.rb:12
+[ActiveJob] [MessageBroadcastJob] [8b17bb6c-0c69-42f7-9dd4-987bb36382fd]   Rendered messages/_message.html.erb (38.7ms)
+[ActiveJob] [MessageBroadcastJob] [8b17bb6c-0c69-42f7-9dd4-987bb36382fd] Error performing MessageBroadcastJob (Job ID: 8b17bb6c-0c69-42f7-9dd4-987bb36382fd) from Async(default) in 79.39ms: ActionView::Template::Error (undefined method `each' for nil:NilClass):
+C:/Users/y0113/takumari/app/views/messages/_message.html.erb:1:in `_app_views_messages__message_html_erb__898971033_114867780'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/template.rb:159:in `block in render'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/notifications.rb:170:in `instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/template.rb:354:in `instrument_render_template'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/template.rb:157:in `render'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/renderer/partial_renderer.rb:344:in `block in render_partial'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/renderer/abstract_renderer.rb:44:in `block in instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/notifications.rb:168:in `block in instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/notifications/instrumenter.rb:23:in `instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/notifications.rb:168:in `instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/renderer/abstract_renderer.rb:43:in `instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/renderer/partial_renderer.rb:333:in `render_partial'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/renderer/partial_renderer.rb:312:in `render'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/renderer/renderer.rb:49:in `render_partial'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/renderer/renderer.rb:23:in `render'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/rendering.rb:103:in `_render_template'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.2.4.2/lib/action_controller/metal/streaming.rb:219:in `_render_template'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/rendering.rb:84:in `render_to_body'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.2.4.2/lib/action_controller/metal/rendering.rb:52:in `render_to_body'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.2.4.2/lib/action_controller/metal/renderers.rb:142:in `render_to_body'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.2.4.2/lib/abstract_controller/rendering.rb:46:in `render_to_string'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.2.4.2/lib/action_controller/metal/rendering.rb:41:in `render_to_string'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.2.4.2/lib/action_controller/renderer.rb:83:in `render'
+C:/Users/y0113/takumari/app/jobs/message_broadcast_job.rb:10:in `render_message'
+C:/Users/y0113/takumari/app/jobs/message_broadcast_job.rb:5:in `perform'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/execution.rb:39:in `block in perform_now'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:109:in `block in run_callbacks'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/i18n-1.8.2/lib/i18n.rb:313:in `with_locale'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/translation.rb:9:in `block (2 levels) in <module:Translation>'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:118:in `instance_exec'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/logging.rb:26:in `block (4 levels) in <module:Logging>'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/notifications.rb:168:in `block in instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/notifications/instrumenter.rb:23:in `instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/notifications.rb:168:in `instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/logging.rb:25:in `block (3 levels) in <module:Logging>'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/logging.rb:46:in `block in tag_logger'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/tagged_logging.rb:71:in `block in tagged'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/tagged_logging.rb:28:in `tagged'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/tagged_logging.rb:71:in `tagged'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/logging.rb:46:in `tag_logger'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/logging.rb:22:in `block (2 levels) in <module:Logging>'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:118:in `instance_exec'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:136:in `run_callbacks'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/execution.rb:38:in `perform_now'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/execution.rb:24:in `block in execute'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:109:in `block in run_callbacks'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/railtie.rb:28:in `block (4 levels) in <class:Railtie>'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/execution_wrapper.rb:87:in `wrap'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/reloader.rb:73:in `block in wrap'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/execution_wrapper.rb:87:in `wrap'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/reloader.rb:72:in `wrap'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/railtie.rb:27:in `block (3 levels) in <class:Railtie>'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:118:in `instance_exec'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:136:in `run_callbacks'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/execution.rb:22:in `execute'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/queue_adapters/async_adapter.rb:70:in `perform'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:353:in `run_task'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:342:in `block (3 levels) in create_worker'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:325:in `loop'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:325:in `block (2 levels) in create_worker'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:324:in `catch'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:324:in `block in create_worker'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:12
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:12
+  [1m[36mMessage Create (5.7ms)[0m  [1m[32mINSERT INTO "messages" ("content", "created_at", "updated_at", "user_id", "room_id") VALUES (?, ?, ?, ?, ?)[0m  [["content", ""], ["created_at", "2020-06-15 10:09:14.376512"], ["updated_at", "2020-06-15 10:09:14.376512"], ["user_id", 1], ["room_id", 1]]
+  ↳ app/channels/room_channel.rb:12
+  [1m[35m (36.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/channels/room_channel.rb:12
+[ActiveJob] Enqueued MessageBroadcastJob (Job ID: 2043c366-76bf-46a2-97ef-b6b80f78aeea) to Async(default) with arguments: #<GlobalID:0x000000000de71870 @uri=#<URI::GID gid://takumari/Message/13>>
+[ActionCable] Broadcasting to room_channel: {:message=>""}
+RoomChannel transmitting {"message"=>""} (via streamed from room_channel)
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [MessageBroadcastJob] [d6574444-a2d5-40a2-ac94-af9923eb45f0] Performing MessageBroadcastJob (Job ID: d6574444-a2d5-40a2-ac94-af9923eb45f0) from Async(default) with arguments: #<GlobalID:0x000000000df941f8 @uri=#<URI::GID gid://takumari/Message/12>>
+[ActiveJob] [MessageBroadcastJob] [d6574444-a2d5-40a2-ac94-af9923eb45f0]   Rendered messages/_message.html.erb (36.2ms)
+[ActiveJob] [MessageBroadcastJob] [d6574444-a2d5-40a2-ac94-af9923eb45f0] Error performing MessageBroadcastJob (Job ID: d6574444-a2d5-40a2-ac94-af9923eb45f0) from Async(default) in 77.85ms: ActionView::Template::Error (undefined method `each' for nil:NilClass):
+C:/Users/y0113/takumari/app/views/messages/_message.html.erb:1:in `_app_views_messages__message_html_erb__898971033_117470380'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/template.rb:159:in `block in render'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/notifications.rb:170:in `instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/template.rb:354:in `instrument_render_template'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/template.rb:157:in `render'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/renderer/partial_renderer.rb:344:in `block in render_partial'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/renderer/abstract_renderer.rb:44:in `block in instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/notifications.rb:168:in `block in instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/notifications/instrumenter.rb:23:in `instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/notifications.rb:168:in `instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/renderer/abstract_renderer.rb:43:in `instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/renderer/partial_renderer.rb:333:in `render_partial'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/renderer/partial_renderer.rb:312:in `render'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/renderer/renderer.rb:49:in `render_partial'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/renderer/renderer.rb:23:in `render'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/rendering.rb:103:in `_render_template'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.2.4.2/lib/action_controller/metal/streaming.rb:219:in `_render_template'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/rendering.rb:84:in `render_to_body'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.2.4.2/lib/action_controller/metal/rendering.rb:52:in `render_to_body'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.2.4.2/lib/action_controller/metal/renderers.rb:142:in `render_to_body'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.2.4.2/lib/abstract_controller/rendering.rb:46:in `render_to_string'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.2.4.2/lib/action_controller/metal/rendering.rb:41:in `render_to_string'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.2.4.2/lib/action_controller/renderer.rb:83:in `render'
+C:/Users/y0113/takumari/app/jobs/message_broadcast_job.rb:10:in `render_message'
+C:/Users/y0113/takumari/app/jobs/message_broadcast_job.rb:5:in `perform'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/execution.rb:39:in `block in perform_now'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:109:in `block in run_callbacks'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/i18n-1.8.2/lib/i18n.rb:313:in `with_locale'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/translation.rb:9:in `block (2 levels) in <module:Translation>'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:118:in `instance_exec'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/logging.rb:26:in `block (4 levels) in <module:Logging>'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/notifications.rb:168:in `block in instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/notifications/instrumenter.rb:23:in `instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/notifications.rb:168:in `instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/logging.rb:25:in `block (3 levels) in <module:Logging>'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/logging.rb:46:in `block in tag_logger'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/tagged_logging.rb:71:in `block in tagged'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/tagged_logging.rb:28:in `tagged'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/tagged_logging.rb:71:in `tagged'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/logging.rb:46:in `tag_logger'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/logging.rb:22:in `block (2 levels) in <module:Logging>'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:118:in `instance_exec'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:136:in `run_callbacks'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/execution.rb:38:in `perform_now'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/execution.rb:24:in `block in execute'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:109:in `block in run_callbacks'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/railtie.rb:28:in `block (4 levels) in <class:Railtie>'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/execution_wrapper.rb:87:in `wrap'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/reloader.rb:73:in `block in wrap'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/execution_wrapper.rb:87:in `wrap'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/reloader.rb:72:in `wrap'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/railtie.rb:27:in `block (3 levels) in <class:Railtie>'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:118:in `instance_exec'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:136:in `run_callbacks'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/execution.rb:22:in `execute'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/queue_adapters/async_adapter.rb:70:in `perform'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:353:in `run_task'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:342:in `block (3 levels) in create_worker'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:325:in `loop'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:325:in `block (2 levels) in create_worker'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:324:in `catch'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:324:in `block in create_worker'
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [MessageBroadcastJob] [2043c366-76bf-46a2-97ef-b6b80f78aeea] Performing MessageBroadcastJob (Job ID: 2043c366-76bf-46a2-97ef-b6b80f78aeea) from Async(default) with arguments: #<GlobalID:0x000000000d2e7338 @uri=#<URI::GID gid://takumari/Message/13>>
+[ActiveJob] [MessageBroadcastJob] [2043c366-76bf-46a2-97ef-b6b80f78aeea]   Rendered messages/_message.html.erb (46.1ms)
+[ActiveJob] [MessageBroadcastJob] [2043c366-76bf-46a2-97ef-b6b80f78aeea] Error performing MessageBroadcastJob (Job ID: 2043c366-76bf-46a2-97ef-b6b80f78aeea) from Async(default) in 84.62ms: ActionView::Template::Error (undefined method `each' for nil:NilClass):
+C:/Users/y0113/takumari/app/views/messages/_message.html.erb:1:in `_app_views_messages__message_html_erb__898971033_117470380'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/template.rb:159:in `block in render'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/notifications.rb:170:in `instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/template.rb:354:in `instrument_render_template'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/template.rb:157:in `render'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/renderer/partial_renderer.rb:344:in `block in render_partial'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/renderer/abstract_renderer.rb:44:in `block in instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/notifications.rb:168:in `block in instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/notifications/instrumenter.rb:23:in `instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/notifications.rb:168:in `instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/renderer/abstract_renderer.rb:43:in `instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/renderer/partial_renderer.rb:333:in `render_partial'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/renderer/partial_renderer.rb:312:in `render'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/renderer/renderer.rb:49:in `render_partial'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/renderer/renderer.rb:23:in `render'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/rendering.rb:103:in `_render_template'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.2.4.2/lib/action_controller/metal/streaming.rb:219:in `_render_template'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/rendering.rb:84:in `render_to_body'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.2.4.2/lib/action_controller/metal/rendering.rb:52:in `render_to_body'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.2.4.2/lib/action_controller/metal/renderers.rb:142:in `render_to_body'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.2.4.2/lib/abstract_controller/rendering.rb:46:in `render_to_string'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.2.4.2/lib/action_controller/metal/rendering.rb:41:in `render_to_string'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.2.4.2/lib/action_controller/renderer.rb:83:in `render'
+C:/Users/y0113/takumari/app/jobs/message_broadcast_job.rb:10:in `render_message'
+C:/Users/y0113/takumari/app/jobs/message_broadcast_job.rb:5:in `perform'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/execution.rb:39:in `block in perform_now'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:109:in `block in run_callbacks'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/i18n-1.8.2/lib/i18n.rb:313:in `with_locale'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/translation.rb:9:in `block (2 levels) in <module:Translation>'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:118:in `instance_exec'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/logging.rb:26:in `block (4 levels) in <module:Logging>'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/notifications.rb:168:in `block in instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/notifications/instrumenter.rb:23:in `instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/notifications.rb:168:in `instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/logging.rb:25:in `block (3 levels) in <module:Logging>'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/logging.rb:46:in `block in tag_logger'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/tagged_logging.rb:71:in `block in tagged'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/tagged_logging.rb:28:in `tagged'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/tagged_logging.rb:71:in `tagged'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/logging.rb:46:in `tag_logger'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/logging.rb:22:in `block (2 levels) in <module:Logging>'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:118:in `instance_exec'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:136:in `run_callbacks'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/execution.rb:38:in `perform_now'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/execution.rb:24:in `block in execute'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:109:in `block in run_callbacks'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/railtie.rb:28:in `block (4 levels) in <class:Railtie>'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/execution_wrapper.rb:87:in `wrap'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/reloader.rb:73:in `block in wrap'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/execution_wrapper.rb:87:in `wrap'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/reloader.rb:72:in `wrap'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/railtie.rb:27:in `block (3 levels) in <class:Railtie>'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:118:in `instance_exec'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:136:in `run_callbacks'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/execution.rb:22:in `execute'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/queue_adapters/async_adapter.rb:70:in `perform'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:353:in `run_task'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:342:in `block (3 levels) in create_worker'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:325:in `loop'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:325:in `block (2 levels) in create_worker'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:324:in `catch'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:324:in `block in create_worker'
+RoomChannel#speak({"message"=>["89", "1", "1"]})
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/channels/room_channel.rb:12
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:12
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:12
+  [1m[36mMessage Create (1.0ms)[0m  [1m[32mINSERT INTO "messages" ("content", "created_at", "updated_at", "user_id", "room_id") VALUES (?, ?, ?, ?, ?)[0m  [["content", "89"], ["created_at", "2020-06-15 10:09:15.658108"], ["updated_at", "2020-06-15 10:09:15.658108"], ["user_id", 1], ["room_id", 1]]
+  ↳ app/channels/room_channel.rb:12
+  [1m[35m (46.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/channels/room_channel.rb:12
+[ActiveJob] Enqueued MessageBroadcastJob (Job ID: 8d881ad9-5032-42b6-9018-b1bae039bcc6) to Async(default) with arguments: #<GlobalID:0x000000000d9b6588 @uri=#<URI::GID gid://takumari/Message/14>>
+[ActionCable] Broadcasting to room_channel: {:message=>"89"}
+RoomChannel transmitting {"message"=>"89"} (via streamed from room_channel)
+  [1m[36mMessage Load (0.3ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [MessageBroadcastJob] [8d881ad9-5032-42b6-9018-b1bae039bcc6] Performing MessageBroadcastJob (Job ID: 8d881ad9-5032-42b6-9018-b1bae039bcc6) from Async(default) with arguments: #<GlobalID:0x000000000da953f0 @uri=#<URI::GID gid://takumari/Message/14>>
+[ActiveJob] [MessageBroadcastJob] [8d881ad9-5032-42b6-9018-b1bae039bcc6]   Rendered messages/_message.html.erb (36.6ms)
+[ActiveJob] [MessageBroadcastJob] [8d881ad9-5032-42b6-9018-b1bae039bcc6] Error performing MessageBroadcastJob (Job ID: 8d881ad9-5032-42b6-9018-b1bae039bcc6) from Async(default) in 69.52ms: ActionView::Template::Error (undefined method `each' for nil:NilClass):
+C:/Users/y0113/takumari/app/views/messages/_message.html.erb:1:in `_app_views_messages__message_html_erb__898971033_114704420'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/template.rb:159:in `block in render'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/notifications.rb:170:in `instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/template.rb:354:in `instrument_render_template'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/template.rb:157:in `render'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/renderer/partial_renderer.rb:344:in `block in render_partial'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/renderer/abstract_renderer.rb:44:in `block in instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/notifications.rb:168:in `block in instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/notifications/instrumenter.rb:23:in `instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/notifications.rb:168:in `instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/renderer/abstract_renderer.rb:43:in `instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/renderer/partial_renderer.rb:333:in `render_partial'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/renderer/partial_renderer.rb:312:in `render'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/renderer/renderer.rb:49:in `render_partial'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/renderer/renderer.rb:23:in `render'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/rendering.rb:103:in `_render_template'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.2.4.2/lib/action_controller/metal/streaming.rb:219:in `_render_template'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/rendering.rb:84:in `render_to_body'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.2.4.2/lib/action_controller/metal/rendering.rb:52:in `render_to_body'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.2.4.2/lib/action_controller/metal/renderers.rb:142:in `render_to_body'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.2.4.2/lib/abstract_controller/rendering.rb:46:in `render_to_string'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.2.4.2/lib/action_controller/metal/rendering.rb:41:in `render_to_string'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.2.4.2/lib/action_controller/renderer.rb:83:in `render'
+C:/Users/y0113/takumari/app/jobs/message_broadcast_job.rb:10:in `render_message'
+C:/Users/y0113/takumari/app/jobs/message_broadcast_job.rb:5:in `perform'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/execution.rb:39:in `block in perform_now'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:109:in `block in run_callbacks'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/i18n-1.8.2/lib/i18n.rb:313:in `with_locale'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/translation.rb:9:in `block (2 levels) in <module:Translation>'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:118:in `instance_exec'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/logging.rb:26:in `block (4 levels) in <module:Logging>'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/notifications.rb:168:in `block in instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/notifications/instrumenter.rb:23:in `instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/notifications.rb:168:in `instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/logging.rb:25:in `block (3 levels) in <module:Logging>'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/logging.rb:46:in `block in tag_logger'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/tagged_logging.rb:71:in `block in tagged'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/tagged_logging.rb:28:in `tagged'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/tagged_logging.rb:71:in `tagged'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/logging.rb:46:in `tag_logger'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/logging.rb:22:in `block (2 levels) in <module:Logging>'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:118:in `instance_exec'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:136:in `run_callbacks'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/execution.rb:38:in `perform_now'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/execution.rb:24:in `block in execute'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:109:in `block in run_callbacks'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/railtie.rb:28:in `block (4 levels) in <class:Railtie>'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/execution_wrapper.rb:87:in `wrap'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/reloader.rb:73:in `block in wrap'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/execution_wrapper.rb:87:in `wrap'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/reloader.rb:72:in `wrap'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/railtie.rb:27:in `block (3 levels) in <class:Railtie>'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:118:in `instance_exec'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:136:in `run_callbacks'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/execution.rb:22:in `execute'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/queue_adapters/async_adapter.rb:70:in `perform'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:353:in `run_task'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:342:in `block (3 levels) in create_worker'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:325:in `loop'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:325:in `block (2 levels) in create_worker'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:324:in `catch'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:324:in `block in create_worker'
+Finished "/cable/" [WebSocket] for ::1 at 2020-06-15 19:09:16 +0900
+RoomChannel stopped streaming from room_channel
+Started GET "/rooms/1" for ::1 at 2020-06-15 19:09:16 +0900
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:11
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mMessage Load (0.5ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/views/rooms/show.html.erb:6
+  Rendered collection of messages/_message.html.erb [10 times] (1.2ms)
+  Rendered rooms/show.html.erb within layouts/application (19.1ms)
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:31
+Completed 200 OK in 170ms (Views: 146.7ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/cable" for ::1 at 2020-06-15 19:09:18 +0900
+Started GET "/cable/" [WebSocket] for ::1 at 2020-06-15 19:09:18 +0900
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room_channel
+Finished "/cable/" [WebSocket] for ::1 at 2020-06-15 19:09:25 +0900
+RoomChannel stopped streaming from room_channel
+Started GET "/rooms/1" for ::1 at 2020-06-15 19:09:25 +0900
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+  [1m[36mRoom Load (0.4ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:11
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mMessage Load (0.7ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/views/rooms/show.html.erb:6
+  Rendered collection of messages/_message.html.erb [10 times] (1.3ms)
+  Rendered rooms/show.html.erb within layouts/application (13.3ms)
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:31
+Completed 200 OK in 181ms (Views: 140.3ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/cable" for ::1 at 2020-06-15 19:09:27 +0900
+Started GET "/cable/" [WebSocket] for ::1 at 2020-06-15 19:09:27 +0900
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room_channel
+Finished "/cable/" [WebSocket] for ::1 at 2020-06-15 19:09:47 +0900
+RoomChannel stopped streaming from room_channel
+Started GET "/rooms/1" for ::1 at 2020-06-15 19:09:47 +0900
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+  [1m[36mRoom Load (0.4ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:11
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mMessage Load (0.6ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/views/rooms/show.html.erb:6
+  Rendered collection of messages/_message.html.erb [10 times] (1.1ms)
+  Rendered rooms/show.html.erb within layouts/application (19.5ms)
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:31
+Completed 200 OK in 182ms (Views: 154.7ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/cable" for ::1 at 2020-06-15 19:09:48 +0900
+Started GET "/cable/" [WebSocket] for ::1 at 2020-06-15 19:09:49 +0900
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room_channel
+Started GET "/cable" for ::1 at 2020-06-15 19:10:11 +0900
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+Started GET "/cable/" [WebSocket] for ::1 at 2020-06-15 19:10:11 +0900
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room_channel
+Finished "/cable/" [WebSocket] for ::1 at 2020-06-15 19:10:14 +0900
+RoomChannel stopped streaming from room_channel
+Started GET "/rooms/1" for ::1 at 2020-06-15 19:10:14 +0900
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+  [1m[36mRoom Load (0.5ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:11
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."room_id" = ?[0m  [["room_id", 1]]
+  ↳ app/views/rooms/show.html.erb:6
+  Rendered collection of messages/_message.html.erb [10 times] (1.2ms)
+  Rendered rooms/show.html.erb within layouts/application (75.5ms)
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:31
+Completed 200 OK in 995ms (Views: 804.2ms | ActiveRecord: 9.5ms)
+
+
+Started GET "/cable" for ::1 at 2020-06-15 19:10:16 +0900
+Started GET "/cable/" [WebSocket] for ::1 at 2020-06-15 19:10:17 +0900
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room_channel
+RoomChannel#speak({"message"=>["aa", "1", "1"]})
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/channels/room_channel.rb:12
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:12
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/channels/room_channel.rb:12
+  [1m[36mMessage Create (5.3ms)[0m  [1m[32mINSERT INTO "messages" ("content", "created_at", "updated_at", "user_id", "room_id") VALUES (?, ?, ?, ?, ?)[0m  [["content", "aa"], ["created_at", "2020-06-15 10:10:23.972989"], ["updated_at", "2020-06-15 10:10:23.972989"], ["user_id", 1], ["room_id", 1]]
+  ↳ app/channels/room_channel.rb:12
+  [1m[35m (45.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/channels/room_channel.rb:12
+[ActiveJob] Enqueued MessageBroadcastJob (Job ID: 0b674071-725c-464f-940c-96fa4df50f37) to Async(default) with arguments: #<GlobalID:0x0000000011e61b38 @uri=#<URI::GID gid://takumari/Message/15>>
+[ActionCable] Broadcasting to room_channel: {:message=>"aa"}
+RoomChannel transmitting {"message"=>"aa"} (via streamed from room_channel)
+  [1m[36mMessage Load (0.5ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [MessageBroadcastJob] [0b674071-725c-464f-940c-96fa4df50f37] Performing MessageBroadcastJob (Job ID: 0b674071-725c-464f-940c-96fa4df50f37) from Async(default) with arguments: #<GlobalID:0x0000000011e8b0f0 @uri=#<URI::GID gid://takumari/Message/15>>
+[ActiveJob] [MessageBroadcastJob] [0b674071-725c-464f-940c-96fa4df50f37]   Rendered messages/_message.html.erb (44.4ms)
+[ActiveJob] [MessageBroadcastJob] [0b674071-725c-464f-940c-96fa4df50f37] Error performing MessageBroadcastJob (Job ID: 0b674071-725c-464f-940c-96fa4df50f37) from Async(default) in 128.71ms: ActionView::Template::Error (undefined method `each' for nil:NilClass):
+C:/Users/y0113/takumari/app/views/messages/_message.html.erb:1:in `_app_views_messages__message_html_erb__602013882_150241560'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/template.rb:159:in `block in render'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/notifications.rb:170:in `instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/template.rb:354:in `instrument_render_template'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/template.rb:157:in `render'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/renderer/partial_renderer.rb:344:in `block in render_partial'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/renderer/abstract_renderer.rb:44:in `block in instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/notifications.rb:168:in `block in instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/notifications/instrumenter.rb:23:in `instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/notifications.rb:168:in `instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/renderer/abstract_renderer.rb:43:in `instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/renderer/partial_renderer.rb:333:in `render_partial'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/renderer/partial_renderer.rb:312:in `render'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/renderer/renderer.rb:49:in `render_partial'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/renderer/renderer.rb:23:in `render'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/rendering.rb:103:in `_render_template'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.2.4.2/lib/action_controller/metal/streaming.rb:219:in `_render_template'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionview-5.2.4.2/lib/action_view/rendering.rb:84:in `render_to_body'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.2.4.2/lib/action_controller/metal/rendering.rb:52:in `render_to_body'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.2.4.2/lib/action_controller/metal/renderers.rb:142:in `render_to_body'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.2.4.2/lib/abstract_controller/rendering.rb:46:in `render_to_string'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.2.4.2/lib/action_controller/metal/rendering.rb:41:in `render_to_string'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/actionpack-5.2.4.2/lib/action_controller/renderer.rb:83:in `render'
+C:/Users/y0113/takumari/app/jobs/message_broadcast_job.rb:10:in `render_message'
+C:/Users/y0113/takumari/app/jobs/message_broadcast_job.rb:5:in `perform'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/execution.rb:39:in `block in perform_now'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:109:in `block in run_callbacks'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/i18n-1.8.2/lib/i18n.rb:313:in `with_locale'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/translation.rb:9:in `block (2 levels) in <module:Translation>'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:118:in `instance_exec'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/logging.rb:26:in `block (4 levels) in <module:Logging>'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/notifications.rb:168:in `block in instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/notifications/instrumenter.rb:23:in `instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/notifications.rb:168:in `instrument'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/logging.rb:25:in `block (3 levels) in <module:Logging>'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/logging.rb:46:in `block in tag_logger'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/tagged_logging.rb:71:in `block in tagged'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/tagged_logging.rb:28:in `tagged'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/tagged_logging.rb:71:in `tagged'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/logging.rb:46:in `tag_logger'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/logging.rb:22:in `block (2 levels) in <module:Logging>'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:118:in `instance_exec'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:136:in `run_callbacks'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/execution.rb:38:in `perform_now'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/execution.rb:24:in `block in execute'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:109:in `block in run_callbacks'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/railtie.rb:28:in `block (4 levels) in <class:Railtie>'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/execution_wrapper.rb:87:in `wrap'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/reloader.rb:73:in `block in wrap'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/execution_wrapper.rb:87:in `wrap'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/reloader.rb:72:in `wrap'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/railtie.rb:27:in `block (3 levels) in <class:Railtie>'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:118:in `instance_exec'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activesupport-5.2.4.2/lib/active_support/callbacks.rb:136:in `run_callbacks'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/execution.rb:22:in `execute'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activejob-5.2.4.2/lib/active_job/queue_adapters/async_adapter.rb:70:in `perform'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:353:in `run_task'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:342:in `block (3 levels) in create_worker'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:325:in `loop'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:325:in `block (2 levels) in create_worker'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:324:in `catch'
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:324:in `block in create_worker'

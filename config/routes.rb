@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
-
-  get "rooms/show" => "rooms#show"
+  get "rooms/top"
+  resources :rooms, only: [:top, :show, :create]
 
   mount ActionCable.server => '/cable'
 

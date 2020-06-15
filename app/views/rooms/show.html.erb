@@ -1,10 +1,14 @@
-<h1>Chat room</h1>
+<div class="main posts-index">
+  <div class="container">
+    <p><%= "ルーム名：#{@room.name}" %></p>
 
-<div id="messages">
-  <%= render @messages %>
+    <div id="messages">
+      <%= render @messages, collection: @messages %>
+    </div>
+
+    <form>
+      <label>Say something:</label><br>
+      <input type="text" data-behavior="room_speaker" data-user="<%= current_user.id %>" data-room="<%= @room.id %>">
+    </form>
+  </div>
 </div>
-
-<form>
-  <label>Say something:</label><br>
-  <input type="text" data-behavior="room_speaker">
-</form>
