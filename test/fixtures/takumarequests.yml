@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  join_user_id: 1
+  mid_user_id: 1
+  takumari_id: 1
+
+two:
+  join_user_id: 1
+  mid_user_id: 1
+  takumari_id: 1

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'takumarequests/join' => "takumarequests#join"
+
   get "rooms/top"
   resources :rooms, only: [:top, :show, :create]
 

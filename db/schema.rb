@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_15_095740) do
+ActiveRecord::Schema.define(version: 2020_06_17_072145) do
 
   create_table "likes", force: :cascade do |t|
     t.integer "user_id"
@@ -43,6 +43,14 @@ ActiveRecord::Schema.define(version: 2020_06_15_095740) do
 
   create_table "rooms", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "takumarequests", force: :cascade do |t|
+    t.integer "join_user_id"
+    t.integer "mid_user_id"
+    t.integer "takumari_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

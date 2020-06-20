@@ -21,6 +21,7 @@ class PostsController < ApplicationController
     @follow_users = @user.following_user.all
 
     @likes = Like.where(user_id: @follow_users).order("created_at DESC").page(params[:page]).per(10)
+
   end
 
   def show
@@ -62,6 +63,9 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find_by(id: params[:id])
     @post.destroy
+    if @likes = Like.where(post_id: @post.id)
+      @likes.destroy
+    end
     flash[:notice] = "投稿を削除しました"
     redirect_to("/posts/index")
   end

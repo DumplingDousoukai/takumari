@@ -1,0 +1,2 @@
+class Takumarequest < ApplicationRecord
+end
